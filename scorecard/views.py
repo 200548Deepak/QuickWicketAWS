@@ -10,6 +10,8 @@ from decimal import Decimal
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Count, ExpressionWrapper, IntegerField, Sum, Value
+from django.db.models.functions import Coalesce
 
 # Create your views here.
 def home(request):
@@ -35,7 +37,21 @@ def logout_view(request):
     return redirect("/")
 
 def players_list(request):
-    players = User.objects.filter()
+    players = (
+        User.objects.exclude(username__in=["n3055", "umpire"])
+        .annotate(
+            total_matches=Count("User", distinct=True),
+            total_runs=ExpressionWrapper(
+                Coalesce(Sum("User__runs1"), Value(0)) + Coalesce(Sum("User__runs2"), Value(0)),
+                output_field=IntegerField(),
+            ),
+            total_wickets=ExpressionWrapper(
+                Coalesce(Sum("User__wkt1"), Value(0)) + Coalesce(Sum("User__wkt2"), Value(0)),
+                output_field=IntegerField(),
+            ),
+        )
+        .order_by("-total_runs", "username")
+    )
     return render(request,"players.html",{"players":players})
 
 def player_profile(request,username):

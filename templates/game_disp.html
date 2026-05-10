@@ -1603,10 +1603,12 @@
             "Ashwamedha":"AWM",
             "Jatayu":"JTY",
         };
-            document.getElementById('tab1').textContent = `${dictionary[data.team_1]} 1st Inn`;
-            document.getElementById('tab2').textContent = `${dictionary[data.team_2]} 1st Inn`;
-            document.getElementById('tab3').textContent = `${dictionary[data.team_1]} 2nd Inn`;
-            document.getElementById('tab4').textContent = `${dictionary[data.team_2]} 2nd Inn`;
+            const team1ShortName = dictionary[data.team_1] || 'ASW';
+            const team2ShortName = dictionary[data.team_2] || 'ASW';
+            document.getElementById('tab1').textContent = `${team1ShortName} 1st Inn`;
+            document.getElementById('tab2').textContent = `${team2ShortName} 1st Inn`;
+            document.getElementById('tab3').textContent = `${team1ShortName} 2nd Inn`;
+            document.getElementById('tab4').textContent = `${team2ShortName} 2nd Inn`;
         }
 
         // Update player tables

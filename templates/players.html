@@ -999,15 +999,15 @@
                 <div class="player-role">All-Rounder</div>
                 <div class="player-stats">
                     <div class="player-stat">
-                        <div class="player-stat-number">{{ forloop.counter|add:10 }}</div>
+                        <div class="player-stat-number">{{ player.total_matches|default:0 }}</div>
                         <div class="player-stat-label">Matches</div>
                     </div>
                     <div class="player-stat">
-                        <div class="player-stat-number">{{ forloop.counter|add:150 }}</div>
+                        <div class="player-stat-number">{{ player.total_runs|default:0 }}</div>
                         <div class="player-stat-label">Runs</div>
                     </div>
                     <div class="player-stat">
-                        <div class="player-stat-number">{{ forloop.counter|add:5 }}</div>
+                        <div class="player-stat-number">{{ player.total_wickets|default:0 }}</div>
                         <div class="player-stat-label">Wickets</div>
                     </div>
                 </div>
