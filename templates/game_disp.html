@@ -466,6 +466,28 @@
             margin-bottom: 32px;
         }
 
+        .lead-trail-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            border-radius: var(--border-radius);
+            background: linear-gradient(135deg, rgba(255, 87, 34, 0.16), rgba(255, 87, 34, 0.06));
+            border: 1px solid rgba(255, 87, 34, 0.35);
+            color: var(--text-primary);
+            font-weight: 700;
+            box-shadow: var(--shadow-1);
+        }
+
+        .lead-trail-banner .lead-trail-label {
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-size: 12px;
+        }
+
         .team-innings {
             background: var(--surface-color);
             border-radius: var(--border-radius);
@@ -1071,11 +1093,20 @@
                         <div class="team-logo" id="team2Logo">T2</div>
                     </div>
                     <p><span id="team1Name">Team 1</span> vs <span id="team2Name">Team 2</span></p>
+                    <div class="lead-trail-banner" id="leadTrailBannerTop" style="max-width: 560px; margin: 16px auto 0;">
+                        <span class="lead-trail-label">Lead / Trail</span>
+                        <span id="leadTrailTextTop">Scores level</span>
+                    </div>
                 </div>
 
                 <!-- Winner Announcement -->
                 <div id="winnerAnnouncement" class="winner-announcement hidden">
                     🏆 <span id="winnerName">Team</span> Won the Test Match! 🎉
+                </div>
+
+                <div class="lead-trail-banner" id="leadTrailBanner">
+                    <span class="lead-trail-label">Lead / Trail</span>
+                    <span id="leadTrailText">Scores level</span>
                 </div>
 
                 <!-- Test Match Scores -->
@@ -1130,6 +1161,9 @@
                         <div class="current-details">
                             <span>Overs: <strong id="currentOvers">0</strong></span>
                             <span>Run Rate: <strong id="runRate">0.00</strong></span>
+                        </div>
+                        <div style="margin-top: 14px; font-size: 16px; font-weight: 700;">
+                            Lead / Trail: <span id="leadTrailTextInline">Scores level</span>
                         </div>
                     </div>
 
@@ -1443,6 +1477,16 @@
             document.getElementById('t1overs2').textContent = data.t1overs2;
             document.getElementById('t2overs1').textContent = data.t2overs1;
             document.getElementById('t2overs2').textContent = data.t2overs2;
+            const leadTrailText = data.lead_trail_text || 'Scores level';
+            document.getElementById('leadTrailText').textContent = leadTrailText;
+            const leadTrailTop = document.getElementById('leadTrailTextTop');
+            if (leadTrailTop) {
+                leadTrailTop.textContent = leadTrailText;
+            }
+            const leadTrailInline = document.getElementById('leadTrailTextInline');
+            if (leadTrailInline) {
+                leadTrailInline.textContent = leadTrailText;
+            }
 
             // Update batting team indicator
             if (data.batting === data.team_1) {

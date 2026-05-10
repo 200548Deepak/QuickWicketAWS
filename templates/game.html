@@ -171,6 +171,21 @@
             margin-bottom: 15px;
             color: var(--text-color);
         }
+
+        .lead-trail-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            font-size: 1em;
+            margin: 10px 0 15px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            color: var(--text-color);
+            background: rgba(255, 87, 34, 0.12);
+            border: 1px solid rgba(255, 87, 34, 0.35);
+            font-weight: 600;
+        }
     
         .score {
             font-size: 2.8em;
@@ -496,6 +511,38 @@
             background-color: var(--highlight-color);
             color: var(--button-text-color);
         }
+
+        .lead-trail-banner {
+            background: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%);
+            border-radius: 8px;
+            padding: 14px 20px;
+            margin: 15px auto;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .lead-trail-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .lead-trail-banner span:last-child {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+        }
+
+        [data-theme="light"] .lead-trail-banner {
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+        }
     </style>
     
 </head>
@@ -556,6 +603,7 @@
             <span><b id="battingTeam">{{ team_2 }}</b>: {{t2run1}}/{{t2wkt1}}</span>
             <span><b id="previousInning">{{ team_2 }}</b>: {{t2run2}}/{{t2wkt2}}</span>
         </div>
+        <div class="lead-trail-banner">Lead / Trail: <span>{{ lead_trail_text }}</span></div>
         <div class="score" id="score">{{t1run1}}/{{t1wkt1}}</div>
         <p style="text-align: center;">Overs: <span id="overs">{{t1overs1}}</span> | Run Rate: <span id="runRate">0.00</span></p>
         {% elif batting == team_1 and innings == 2%}
@@ -565,6 +613,7 @@
             <span><b id="battingTeam">{{ team_2 }}</b>: {{t2run1}}/{{t2wkt1}}</span>
             <span><b id="previousInning">{{ team_2 }}</b>: {{t2run2}}/{{t2wkt2}}</span>
         </div>
+        <div class="lead-trail-banner">Lead / Trail: <span>{{ lead_trail_text }}</span></div>
         <div class="score" id="score">{{t1run2}}/{{t1wkt2}}</div>
         <p style="text-align: center;">Overs: <span id="overs">{{t1overs2}}</span> | Run Rate: <span id="runRate">0.00</span></p>
         {% elif batting == team_2 and innings == 1%}
@@ -574,6 +623,7 @@
             <span><b id="battingTeam">{{ team_2 }}</b>: (Batting)</span>
             <span><b id="previousInning">{{ team_2 }}</b>: {{t2run2}}/{{t2wkt2}}</span>
         </div>
+        <div class="lead-trail-banner">Lead / Trail: <span>{{ lead_trail_text }}</span></div>
         <div class="score" id="score">{{t2run1}}/{{t2wkt1}}</div>
         <p style="text-align: center;">Overs: <span id="overs">{{t2overs1}}</span> | Run Rate: <span id="runRate">0.00</span></p>
         {% elif batting == team_2 and innings == 2%}
@@ -583,6 +633,7 @@
             <span><b id="battingTeam">{{ team_2 }}</b>: {{t2run1}}/{{t2wkt1}}</span>
             <span><b id="previousInning">{{ team_2 }}</b>: (Batting)</span>
         </div>
+        <div class="lead-trail-banner">Lead / Trail: <span>{{ lead_trail_text }}</span></div>
         <div class="score" id="score">{{t2run2}}/{{t2wkt2}}</div>
         <p style="text-align: center;">Overs: <span id="overs">{{t2overs2}}</span> | Run Rate: <span id="runRate">0.00</span></p>
         {% endif %}

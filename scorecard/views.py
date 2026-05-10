@@ -105,6 +105,48 @@ def serialize_player(player):
         "team": player.team.team_name,
     }
 
+
+def get_lead_trail_text(match):
+    team1_total = match.t1run1 + match.t1run2
+    team2_total = match.t2run1 + match.t2run2
+
+    if team1_total == team2_total:
+        return "Scores level"
+
+    if match.batting == match.team1:
+        if team1_total > team2_total:
+            diff = team1_total - team2_total
+            return f"{match.team1.team_name} lead by {diff} runs"
+        diff = team2_total - team1_total
+        return f"{match.team1.team_name} trail by {diff} runs"
+
+    if match.batting == match.team2:
+        if team2_total > team1_total:
+            diff = team2_total - team1_total
+            return f"{match.team2.team_name} lead by {diff} runs"
+        diff = team1_total - team2_total
+        return f"{match.team2.team_name} trail by {diff} runs"
+
+    if team1_total > team2_total:
+        diff = team1_total - team2_total
+        return f"{match.team1.team_name} lead by {diff} runs"
+
+    diff = team2_total - team1_total
+    return f"{match.team2.team_name} lead by {diff} runs"
+
+
+def resolve_winner_if_chased(match):
+    if match.won or match.innings != 2:
+        return
+
+    team1_total = match.t1run1 + match.t1run2
+    team2_total = match.t2run1 + match.t2run2
+
+    if match.batting == match.team1 and team1_total > team2_total:
+        match.won = match.team1
+    elif match.batting == match.team2 and team2_total > team1_total:
+        match.won = match.team2
+
 def game_details_json(request, game_id):
     match = get_object_or_404(Match, match_id=game_id)
 
@@ -137,6 +179,7 @@ def game_details_json(request, game_id):
         "non_striker": serialize_player(non_striker) if non_striker else None,
         "innings": match.innings,
         "won": str(match.won.team_name) if match.won else "",
+        "lead_trail_text": get_lead_trail_text(match),
         "t1_players": [serialize_player(p) for p in players1],
         "t2_players": [serialize_player(p) for p in players2],
         "ball_record": match.ball_record,
@@ -170,6 +213,7 @@ def game(request, game_id):
     "non_striker": Players.objects.get(match=match,name=match.non_striker) if match.non_striker else "",
     "innings": match.innings,
     "won":str(match.won.team_name) if match.won else "",
+    "lead_trail_text": get_lead_trail_text(match),
     "t1_players":players1,
     "t2_players":players2,
     "ball_record": match.ball_record,
@@ -342,10 +386,11 @@ def game_update(request):
                         match.non_striker = None
                         match.batting = match.team2
 
+            resolve_winner_if_chased(match)
             match.save()
             striker.save()
             bowler.save()
-            return JsonResponse({"message": "OK", "Change_bowler": change_bowler}, status=200)
+            return JsonResponse({"message": "OK", "Change_bowler": change_bowler, "lead_trail_text": get_lead_trail_text(match)}, status=200)
         if action == 'updateWkt':
             bowler = Players.objects.get(match=match, name=match.bowler)
             batter = Players.objects.get(match=match, name=match.striker)
@@ -469,8 +514,9 @@ def game_update(request):
                         match.non_striker = None
                         match.batting = match.team1
 
+            resolve_winner_if_chased(match)
             match.save()
-            return JsonResponse({"message": "OK", "Change_bowler": change_bowler}, status=200)
+            return JsonResponse({"message": "OK", "Change_bowler": change_bowler, "lead_trail_text": get_lead_trail_text(match)}, status=200)
         if action == "updateWide":
             match.ball_record.append("Wd")
             if match.batting == match.team1 and match.innings == 1:
@@ -492,9 +538,10 @@ def game_update(request):
                 match.t2run2 += 1
                 bowler = Players.objects.get(match=match, name=match.bowler)
                 bowler.bruns2 += 1
+            resolve_winner_if_chased(match)
             match.save()
             bowler.save()
-            return JsonResponse({"message": "OK", "Change_bowler": "No"}, status=200)
+            return JsonResponse({"message": "OK", "Change_bowler": "No", "lead_trail_text": get_lead_trail_text(match)}, status=200)
         if action == "updateNB":
             match.ball_record.append("Nb")
             runs = int(data.get("runs", 0)) 
@@ -530,32 +577,33 @@ def game_update(request):
                 striker.balls2 +=1
                 bowler.bruns2 += runs + 1
 
+            resolve_winner_if_chased(match)
             match.save()
             striker.save()
             bowler.save()
 
-            return JsonResponse({"message": "OK"}, status=200)
+            return JsonResponse({"message": "OK", "lead_trail_text": get_lead_trail_text(match)}, status=200)
         if action == "changeStrike":
             temp = match.striker
             match.striker = match.non_striker
             match.non_striker = temp
             match.save()
-            return JsonResponse({"message": "OK"}, status=200)
+            return JsonResponse({"message": "OK", "lead_trail_text": get_lead_trail_text(match)}, status=200)
         if action == "strike":
             new_striker = data.get("new_striker")
             match.striker = User.objects.get(username=new_striker)
             match.save()
-            return JsonResponse({"message":"Ok"},status=200)
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
         if action == "non-strike":
             new_striker = data.get("new_striker")
             match.non_striker = User.objects.get(username=new_striker)
             match.save()
-            return JsonResponse({"message":"Ok"},status=200)
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
         if action == "changeBowler":
             new_bowler = data.get("new_bowler")
             match.bowler = User.objects.get(username=new_bowler)
             match.save()
-            return JsonResponse({"message":"Ok"},status=200)
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
         if action == "followon":
             if match.innings == 2:
                 if match.batting.team_name == match.team1.team_name:
@@ -563,7 +611,7 @@ def game_update(request):
                 else:
                     match.batting = match.team1
                 match.save()
-                return JsonResponse({"message":"OK"},status=200)
+                return JsonResponse({"message":"OK", "lead_trail_text": get_lead_trail_text(match)},status=200)
             else:
                 return JsonResponse({"message":"Cannot follow on in first innings"},status=400)
         if action == 'runout':
@@ -723,8 +771,9 @@ def game_update(request):
                         match.non_striker = None
                         match.batting = match.team1
 
+            resolve_winner_if_chased(match)
             match.save()
-            return JsonResponse({"message": "OK", "Change_bowler": change_bowler}, status=200)
+            return JsonResponse({"message": "OK", "Change_bowler": change_bowler, "lead_trail_text": get_lead_trail_text(match)}, status=200)
         if match.t2overs2 != Decimal('0.0') and match.t1overs2 != Decimal('0.0'):
             if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
                 match.won = match.team2
