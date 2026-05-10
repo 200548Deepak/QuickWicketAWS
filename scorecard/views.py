@@ -37,6 +37,7 @@ def logout_view(request):
     return redirect("/")
 
 def players_list(request):
+    sort_by = request.GET.get("sort", "runs")
     players = (
         User.objects.exclude(username__in=["n3055", "umpire"])
         .annotate(
@@ -50,9 +51,14 @@ def players_list(request):
                 output_field=IntegerField(),
             ),
         )
-        .order_by("-total_runs", "username")
     )
-    return render(request,"players.html",{"players":players})
+    if sort_by == "wickets":
+        players = players.order_by("-total_wickets", "-total_runs", "username")
+    else:
+        sort_by = "runs"
+        players = players.order_by("-total_runs", "-total_wickets", "username")
+
+    return render(request,"players.html",{"players":players, "sort_by": sort_by})
 
 def player_profile(request,username):
     player_user = get_object_or_404(User, username=username)
