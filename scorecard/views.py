@@ -15,7 +15,8 @@ from django.db.models.functions import Coalesce
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    teams = Team.objects.annotate(actual_matches_won=Count("won")).order_by("-actual_matches_won", "team_name")
+    return render(request, 'home.html', {"teams": teams})
 
 def login_view(request):
     if request.method == "POST":
@@ -38,6 +39,15 @@ def logout_view(request):
 
 def players_list(request):
     sort_by = request.GET.get("sort", "runs")
+    total_players = User.objects.exclude(username__in=["n3055", "umpire"]).count()
+    active_players = (
+        Players.objects.exclude(name__username__in=["n3055", "umpire"])
+        .values("name")
+        .distinct()
+        .count()
+    )
+    total_teams = Team.objects.count()
+    matches_played = Match.objects.count()
     players = (
         User.objects.exclude(username__in=["n3055", "umpire"])
         .annotate(
@@ -46,19 +56,52 @@ def players_list(request):
                 Coalesce(Sum("User__runs1"), Value(0)) + Coalesce(Sum("User__runs2"), Value(0)),
                 output_field=IntegerField(),
             ),
+            total_balls=ExpressionWrapper(
+                Coalesce(Sum("User__balls1"), Value(0)) + Coalesce(Sum("User__balls2"), Value(0)),
+                output_field=IntegerField(),
+            ),
+            total_bowling_runs=ExpressionWrapper(
+                Coalesce(Sum("User__bruns1"), Value(0)) + Coalesce(Sum("User__bruns2"), Value(0)),
+                output_field=IntegerField(),
+            ),
+            total_overs=ExpressionWrapper(
+                Coalesce(Sum("User__overs1"), Value(0)) + Coalesce(Sum("User__overs2"), Value(0)),
+                output_field=IntegerField(),
+            ),
             total_wickets=ExpressionWrapper(
                 Coalesce(Sum("User__wkt1"), Value(0)) + Coalesce(Sum("User__wkt2"), Value(0)),
                 output_field=IntegerField(),
             ),
         )
     )
+
+    players = list(players)
+    for player in players:
+        player.strike_rate = (player.total_runs / player.total_balls * 100) if player.total_balls > 0 else 0
+        player.economy = (player.total_bowling_runs / (player.total_overs / 6)) if player.total_overs > 0 else 0
+
     if sort_by == "wickets":
-        players = players.order_by("-total_wickets", "-total_runs", "username")
+        players.sort(key=lambda player: (-player.total_wickets, -player.total_runs, player.username))
+    elif sort_by == "economy":
+        players.sort(key=lambda player: (player.total_overs < 6, player.economy if player.total_overs >= 6 else float("inf"), -player.total_runs, player.username))
+    elif sort_by == "strike_rate":
+        players.sort(key=lambda player: (-player.strike_rate, -player.total_runs, player.username))
     else:
         sort_by = "runs"
-        players = players.order_by("-total_runs", "-total_wickets", "username")
+        players.sort(key=lambda player: (-player.total_runs, -player.total_wickets, player.username))
 
-    return render(request,"players.html",{"players":players, "sort_by": sort_by})
+    return render(
+        request,
+        "players.html",
+        {
+            "players": players,
+            "sort_by": sort_by,
+            "total_players": total_players,
+            "active_players": active_players,
+            "total_teams": total_teams,
+            "matches_played": matches_played,
+        },
+    )
 
 def player_profile(request,username):
     player_user = get_object_or_404(User, username=username)

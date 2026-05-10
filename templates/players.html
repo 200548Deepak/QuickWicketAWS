@@ -1076,12 +1076,24 @@
                 </div>
                 <div class="sort-container">
                     <button type="button" class="sort-button" id="sortButton" onclick="toggleSortMenu()">
-                        <span id="sortButtonLabel">{% if sort_by == 'wickets' %}Most Wickets{% else %}Most Runs{% endif %}</span>
+                        <span id="sortButtonLabel">
+                            {% if sort_by == 'wickets' %}
+                                Most Wickets
+                            {% elif sort_by == 'economy' %}
+                                Lowest Economy
+                            {% elif sort_by == 'strike_rate' %}
+                                Highest Strike Rate
+                            {% else %}
+                                Most Runs
+                            {% endif %}
+                        </span>
                         <span class="sort-caret" aria-hidden="true"></span>
                     </button>
                     <div class="sort-menu" id="sortMenu" role="menu" aria-label="Sort players">
                         <button type="button" class="sort-option {% if sort_by == 'runs' %}active{% endif %}" onclick="setSort('runs')">Most Runs</button>
                         <button type="button" class="sort-option {% if sort_by == 'wickets' %}active{% endif %}" onclick="setSort('wickets')">Most Wickets</button>
+                        <button type="button" class="sort-option {% if sort_by == 'economy' %}active{% endif %}" onclick="setSort('economy')">Lowest Economy</button>
+                        <button type="button" class="sort-option {% if sort_by == 'strike_rate' %}active{% endif %}" onclick="setSort('strike_rate')">Highest Strike Rate</button>
                     </div>
                 </div>
             </div>
@@ -1090,19 +1102,19 @@
         <!-- Stats Section -->
         <div class="stats-section">
             <div class="stat-card">
-                <div class="stat-number" id="totalPlayers">{{ players|length }}</div>
+                <div class="stat-number" id="totalPlayers">{{ total_players|default:0 }}</div>
                 <div class="stat-label">Total Players</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="activePlayers">{{ players|length }}</div>
+                <div class="stat-number" id="activePlayers">{{ active_players|default:0 }}</div>
                 <div class="stat-label">Active Players</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">12</div>
+                <div class="stat-number">{{ total_teams|default:0 }}</div>
                 <div class="stat-label">Teams</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">45</div>
+                <div class="stat-number">{{ matches_played|default:0 }}</div>
                 <div class="stat-label">Matches Played</div>
             </div>
         </div>
