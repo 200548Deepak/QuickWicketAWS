@@ -1,0 +1,22 @@
+cd /quickWicket
+source venv/bin/activate
+
+Run in background :
+nohup python manage.py runserver 0.0.0.0:8000 & 
+
+Check it is running:
+ps aux | grep manage.py
+
+Stop it:
+pkill -f manage.py
+
+Run in console:
+
+python manage.py runserver 0.0.0.0:8000
+
+copy public IP of the Instance open browser and past the address 
+00.000.00.000:8000 
+
+Admin Login:
+User Name:Umpire
+psw: umpire
