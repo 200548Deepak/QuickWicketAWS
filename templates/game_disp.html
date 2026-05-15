@@ -1504,6 +1504,7 @@
                 document.getElementById('winnerName').textContent = data.won;
                 document.getElementById('currentBattingSection').classList.add('hidden');
                 document.getElementById('currentPlayersSection').classList.add('hidden');
+                stopPolling();
             } else {
                 document.getElementById('liveIndicator').classList.remove('hidden');
                 document.getElementById('winnerAnnouncement').classList.add('hidden');
@@ -1739,6 +1740,9 @@
         // Start polling for live updates
         function startPolling() {
             if (matchData && !matchData.won) {
+                if (pollInterval) {
+                    clearInterval(pollInterval);
+                }
                 pollInterval = setInterval(() => {
                     fetchMatchData();
                 }, 5000); 
@@ -1797,9 +1801,6 @@
 
         // Add smooth scrolling for mobile
         document.addEventListener('touchstart', function() {}, {passive: true});
-        pollInterval = setInterval(() => {
-                    fetchMatchData();
-        }, 5000); 
     </script>
 </body>
 </html>

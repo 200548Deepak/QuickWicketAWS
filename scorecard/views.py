@@ -207,9 +207,26 @@ def resolve_winner_if_chased(match):
     team1_total = match.t1run1 + match.t1run2
     team2_total = match.t2run1 + match.t2run2
 
-    if match.batting == match.team1 and team1_total > team2_total:
+    if match.batting == match.team1:
+        team1_remaining = Players.objects.filter(match=match, team=match.team1, out2=False).count()
+        if match.t1overs2 == Decimal('10.0') or team1_remaining == 0:
+            match.won = match.team2 if team1_total < team2_total else match.team1
+    elif match.batting == match.team2:
+        team2_remaining = Players.objects.filter(match=match, team=match.team2, out2=False).count()
+        if match.t2overs2 == Decimal('10.0') or team2_remaining == 0:
+            match.won = match.team1 if team2_total < team1_total else match.team2
+
+
+def complete_match(match):
+    if match.won:
+        return
+
+    team1_total = match.t1run1 + match.t1run2
+    team2_total = match.t2run1 + match.t2run2
+
+    if team1_total >= team2_total:
         match.won = match.team1
-    elif match.batting == match.team2 and team2_total > team1_total:
+    else:
         match.won = match.team2
 
 def game_details_json(request, game_id):
@@ -679,6 +696,10 @@ def game_update(request):
                 return JsonResponse({"message":"OK", "lead_trail_text": get_lead_trail_text(match)},status=200)
             else:
                 return JsonResponse({"message":"Cannot follow on in first innings"},status=400)
+        if action == "completeMatch":
+            complete_match(match)
+            match.save()
+            return JsonResponse({"message": "OK", "won": str(match.won.team_name) if match.won else ""}, status=200)
         if action == 'runout':
             match.ball_record.append("RO")
             bowler = Players.objects.get(match=match, name=match.bowler)
@@ -839,13 +860,6 @@ def game_update(request):
             resolve_winner_if_chased(match)
             match.save()
             return JsonResponse({"message": "OK", "Change_bowler": change_bowler, "lead_trail_text": get_lead_trail_text(match)}, status=200)
-        if match.t2overs2 != Decimal('0.0') and match.t1overs2 != Decimal('0.0'):
-            if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
-                match.won = match.team2
-            else:
-                match.won = match.team1
-            match.save()
-        
     return JsonResponse({"message": "Something went wrong"}, status=500)
 
 def undo_data(request):

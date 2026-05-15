@@ -415,6 +415,21 @@
             color: #666;
             cursor: not-allowed;
         }
+
+        .match-complete-action {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(180deg, rgba(255, 87, 34, 0.08) 0%, rgba(255, 87, 34, 0.02) 100%);
+            border-radius: 10px;
+        }
+
+        .match-complete-action .button {
+            min-width: 220px;
+            box-shadow: 0 8px 20px rgba(255, 87, 34, 0.22);
+        }
         .popup {
             display: none; /* Hidden by default */
             position: fixed;
@@ -878,6 +893,10 @@
             {% endif %}
             {% endif %}
 
+            <div class="match-complete-action">
+                <button class="button" onclick="completeMatch()">Match Completed</button>
+            </div>
+
         </div>
         <div class="tabs">
             <button class="tab-button active" onclick="openTab('team1-1st')">{{team_1}} 1st Inn</button>
@@ -1303,6 +1322,26 @@
             const data = {
                 'match_id':"{{match_id}}",
                 'action':"followon"
+            }
+            const response = await fetch('/update_game/',{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify(data)
+            });
+            if(response.ok){
+                window.location.reload();
+            }
+            else{
+                alert("Either you are crazy or this website is lame!!");
+            }
+        }
+        async function completeMatch(){
+            const data = {
+                'match_id':"{{match_id}}",
+                'action':"completeMatch"
             }
             const response = await fetch('/update_game/',{
             method: 'POST',
