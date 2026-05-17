@@ -1339,6 +1339,10 @@
             }
         }
         async function completeMatch(){
+            const confirmed = confirm('Are you sure you want to complete this match? This will finalize the result.');
+            if (!confirmed) {
+                return;
+            }
             const data = {
                 'match_id':"{{match_id}}",
                 'action':"completeMatch"
