@@ -22135,3 +22135,821 @@ Not Found: /favicon.ico
 [17/May/2026 21:18:19] "GET /game/20260517_140550_WOZWfl HTTP/1.1" 200 60943
 [17/May/2026 21:18:44] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 61551
 [17/May/2026 21:21:41,861] - Broken pipe from ('152.57.120.46', 49314)
+Not Found: /favicon.ico
+[17/May/2026 21:57:20] "GET /favicon.ico HTTP/1.1" 404 4230
+[17/May/2026 21:57:23] "GET /matches/ HTTP/1.1" 200 41812
+[17/May/2026 21:57:25] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 68056
+[17/May/2026 21:57:25] "GET /game_details/20260517_122902_sNnUqI HTTP/1.1" 200 4340
+[17/May/2026 21:57:27] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 68056
+[17/May/2026 21:57:27] "GET /game_details/20260517_122902_sNnUqI HTTP/1.1" 200 4340
+Not Found: /favicon.ico
+[17/May/2026 22:08:31] "GET /favicon.ico HTTP/1.1" 404 4230
+[17/May/2026 22:08:32] "GET / HTTP/1.1" 200 37382
+[17/May/2026 22:08:49] "GET / HTTP/1.1" 200 37382
+[17/May/2026 22:08:59] "GET / HTTP/1.1" 200 37382
+[17/May/2026 22:09:03] "GET /matches/ HTTP/1.1" 200 41818
+[17/May/2026 22:13:32,993] - Broken pipe from ('49.37.241.188', 48114)
+[17/May/2026 22:14:07,010] - Broken pipe from ('49.37.241.188', 48112)
+[17/May/2026 22:16:12] "GET /matches/ HTTP/1.1" 200 41818
+[17/May/2026 22:16:20] "GET / HTTP/1.1" 200 37382
+[17/May/2026 22:16:29] "GET /matches/ HTTP/1.1" 200 41818
+[17/May/2026 22:16:33] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 61735
+[17/May/2026 22:16:59] "POST /update_game/ HTTP/1.1" 200 84
+[17/May/2026 22:16:59] "POST /update_game/ HTTP/1.1" 200 61
+[17/May/2026 22:16:59] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 61801
+[17/May/2026 22:17:00] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 61801
+[17/May/2026 22:17:06] "POST /undo_data/ HTTP/1.1" 200 55
+[17/May/2026 22:17:06] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 61735
+[17/May/2026 22:17:37] "POST /update_game/ HTTP/1.1" 200 84
+[17/May/2026 22:17:37] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 61804
+[17/May/2026 22:17:47] "GET / HTTP/1.1" 200 37382
+[17/May/2026 22:17:52] "GET /matches/ HTTP/1.1" 200 41818
+[17/May/2026 22:17:54] "GET /game/20260517_140550_WOZWfl HTTP/1.1" 200 61130
+[17/May/2026 22:18:20] "GET / HTTP/1.1" 200 37382
+Not Found: /favicon.ico
+[17/May/2026 22:21:57] "GET /favicon.ico HTTP/1.1" 404 4230
+[17/May/2026 22:26:59,997] - Broken pipe from ('49.37.241.188', 48704)
+[17/May/2026 22:37:41] "GET / HTTP/1.1" 200 37382
+[17/May/2026 22:38:30] "GET / HTTP/1.1" 200 37376
+[17/May/2026 22:38:31] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[17/May/2026 22:38:31] "GET /favicon.ico HTTP/1.1" 404 4230
+[17/May/2026 22:38:35] "GET / HTTP/1.1" 200 37376
+[17/May/2026 22:38:48] "GET /players/ HTTP/1.1" 200 73402
+[17/May/2026 22:38:53] "GET /players/?sort=economy HTTP/1.1" 200 73407
+[17/May/2026 22:39:15] "GET /player/Keshav HTTP/1.1" 200 62433
+[17/May/2026 22:42:39,478] - Broken pipe from ('49.37.241.188', 38178)
+[17/May/2026 22:42:43,895] - Broken pipe from ('49.37.241.188', 38176)
+Not Found: /favicon.ico
+[17/May/2026 22:49:46] "GET /favicon.ico HTTP/1.1" 404 4230
+[17/May/2026 22:49:51] "GET / HTTP/1.1" 200 37376
+[17/May/2026 22:49:56] "GET /players/ HTTP/1.1" 200 73402
+[17/May/2026 22:49:59] "GET /matches/ HTTP/1.1" 200 41812
+[17/May/2026 22:50:01] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 68056
+[17/May/2026 22:50:02] "GET /game_details/20260517_122902_sNnUqI HTTP/1.1" 200 4353
+Not Found: /favicon.ico
+[17/May/2026 22:53:00] "GET /favicon.ico HTTP/1.1" 404 4230
+[17/May/2026 22:58:02,808] - Broken pipe from ('49.37.241.188', 39684)
+Not Found: /favicon.ico
+[17/May/2026 23:01:28] "GET /favicon.ico HTTP/1.1" 404 4230
+Not Found: /favicon.ico
+[17/May/2026 23:09:17] "GET /favicon.ico HTTP/1.1" 404 4230
+[17/May/2026 23:27:47] "GET / HTTP/1.1" 200 37376
+[17/May/2026 23:27:48] code 400, message Bad request version ('À\x13À')
+[17/May/2026 23:27:48] You're accessing the development server over HTTPS, but it only supports HTTP.
+[17/May/2026 23:34:39] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[17/May/2026 23:34:40] "GET /favicon.ico HTTP/1.1" 404 4230
+[17/May/2026 23:34:47] "GET /matches HTTP/1.1" 301 0
+[17/May/2026 23:34:47] "GET /matches/ HTTP/1.1" 200 41812
+[17/May/2026 23:34:50] "GET /players HTTP/1.1" 301 0
+[17/May/2026 23:34:50] "GET /players/ HTTP/1.1" 200 73402
+[17/May/2026 23:35:08,522] - Broken pipe from ('101.0.63.82', 59256)
+[17/May/2026 23:35:08,524] - Broken pipe from ('101.0.63.82', 59258)
+[17/May/2026 23:36:12] "GET /player/Harsha HTTP/1.1" 200 62456
+[17/May/2026 23:37:33] "GET /players/ HTTP/1.1" 200 73402
+[17/May/2026 23:37:36] "GET /players/?sort=wickets HTTP/1.1" 200 73405
+[17/May/2026 23:37:49] "GET /player/Harsha HTTP/1.1" 200 62456
+[17/May/2026 23:38:00] "GET /players/ HTTP/1.1" 200 73402
+[17/May/2026 23:38:04] "GET /players/?sort=economy HTTP/1.1" 200 73407
+[17/May/2026 23:38:14] "GET /player/Deepak HTTP/1.1" 200 62430
+[17/May/2026 23:38:19] "GET /players/?sort=strike_rate HTTP/1.1" 200 73412
+[17/May/2026 23:38:33,885] - Broken pipe from ('101.0.63.82', 59258)
+[17/May/2026 23:38:33,886] - Broken pipe from ('101.0.63.82', 59072)
+[17/May/2026 23:39:45] "GET /players/ HTTP/1.1" 200 73402
+[17/May/2026 23:39:52] "GET /players/?sort=economy HTTP/1.1" 200 73407
+[17/May/2026 23:40:03] "GET /player/Harsha HTTP/1.1" 200 62456
+[17/May/2026 23:42:11,037] - Broken pipe from ('101.0.63.82', 59122)
+[17/May/2026 23:42:11,037] - Broken pipe from ('101.0.63.82', 59060)
+[17/May/2026 23:48:59,033] - Broken pipe from ('101.0.63.82', 59228)
+[17/May/2026 23:48:59,033] - Broken pipe from ('101.0.63.82', 59238)
+[18/May/2026 00:00:28] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[18/May/2026 00:00:29] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 00:00:34] "GET /players/ HTTP/1.1" 200 73402
+[18/May/2026 00:08:22] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[18/May/2026 00:08:23] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 00:09:14] "GET / HTTP/1.1" 200 37376
+[18/May/2026 00:09:17] "GET /matches HTTP/1.1" 301 0
+[18/May/2026 00:09:17] "GET /matches/ HTTP/1.1" 200 41812
+[18/May/2026 00:09:44] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 68056
+[18/May/2026 00:09:44] "GET /game_details/20260517_122902_sNnUqI HTTP/1.1" 200 4353
+[18/May/2026 00:10:58] "GET /matches/ HTTP/1.1" 200 41812
+[18/May/2026 00:11:04] "GET /game/20260517_140550_WOZWfl HTTP/1.1" 200 68056
+[18/May/2026 00:11:04] "GET /game_details/20260517_140550_WOZWfl HTTP/1.1" 200 4361
+[18/May/2026 00:11:47,400] - Broken pipe from ('103.214.63.53', 58344)
+[18/May/2026 00:11:47,401] - Broken pipe from ('103.214.63.53', 35550)
+[18/May/2026 00:13:11] "GET / HTTP/1.1" 200 37376
+[18/May/2026 00:13:12] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[18/May/2026 00:13:12] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 00:13:17] "GET /players/ HTTP/1.1" 200 73402
+[18/May/2026 00:13:30] "GET /players/ HTTP/1.1" 200 73402
+[18/May/2026 00:13:34] "GET /players/?sort=wickets HTTP/1.1" 200 73405
+[18/May/2026 00:13:56] "GET /player/Devraj HTTP/1.1" 200 58847
+[18/May/2026 00:14:07] "GET /players/ HTTP/1.1" 200 73402
+[18/May/2026 00:14:09] "GET /matches/ HTTP/1.1" 200 41812
+[18/May/2026 00:14:13] "GET /game/20260517_140550_WOZWfl HTTP/1.1" 200 68056
+[18/May/2026 00:14:13] "GET /game_details/20260517_140550_WOZWfl HTTP/1.1" 200 4361
+[18/May/2026 00:16:18,255] - Broken pipe from ('103.214.63.53', 54926)
+[18/May/2026 00:16:18,256] - Broken pipe from ('103.214.63.53', 54922)
+[18/May/2026 01:47:46] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[18/May/2026 01:47:46] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 01:47:50] "GET /players/ HTTP/1.1" 200 73402
+[18/May/2026 01:47:58] "GET /players/?sort=runs HTTP/1.1" 200 73402
+[18/May/2026 01:48:07] "GET /players/?sort=wickets HTTP/1.1" 200 73405
+[18/May/2026 01:48:21] "GET /players/?sort=economy HTTP/1.1" 200 73407
+[18/May/2026 01:48:45] "GET /players/?sort=strike_rate HTTP/1.1" 200 73412
+[18/May/2026 01:48:58] "GET /player/Devraj HTTP/1.1" 200 58847
+[18/May/2026 01:49:21] "GET /matches/ HTTP/1.1" 200 41812
+[18/May/2026 01:49:25] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 68056
+[18/May/2026 01:49:25] "GET /game_details/20260517_122902_sNnUqI HTTP/1.1" 200 4353
+[18/May/2026 01:50:23] "GET /matches/ HTTP/1.1" 200 41812
+[18/May/2026 01:50:26] "GET /game/20260517_140550_WOZWfl HTTP/1.1" 200 68056
+[18/May/2026 01:50:26] "GET /game_details/20260517_140550_WOZWfl HTTP/1.1" 200 4361
+[18/May/2026 02:30:52,928] - Broken pipe from ('183.83.192.76', 24662)
+Not Found: /favicon.ico
+[18/May/2026 02:30:57] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 02:30:57,119] - Broken pipe from ('183.83.192.76', 24792)
+[18/May/2026 02:41:17] "GET / HTTP/1.1" 200 37376
+[18/May/2026 02:41:17] code 400, message Bad request syntax ('MGLNDD_65.2.127.71_8000')
+[18/May/2026 02:41:17] "MGLNDD_65.2.127.71_8000" 400 -
+[18/May/2026 02:45:02] "GET /?_HELP_ME_ESCAPE_FROM_BELARUS_PLEASE_ HTTP/1.1" 200 37376
+[18/May/2026 02:45:03] "GET /?_HELP_ME_ESCAPE_FROM_BELARUS_PLEASE_ HTTP/1.1" 200 37376
+[18/May/2026 02:45:03] "GET /?_HELP_ME_ESCAPE_FROM_BELARUS_PLEASE_ HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[18/May/2026 03:06:08] "GET /favicon.ico HTTP/1.1" 404 4230
+Not Found: /http:/112.124.42.80:63435/
+[18/May/2026 04:24:12] "HEAD http://112.124.42.80:63435/ HTTP/1.1" 404 0
+[18/May/2026 05:59:59] "GET / HTTP/1.1" 200 37376
+Not Found: /ipinfo.io:443
+[18/May/2026 09:47:44] "CONNECT ipinfo.io:443 HTTP/1.1" 404 1787
+[18/May/2026 09:54:36] "GET / HTTP/1.1" 200 37382
+Not Found: /favicon.ico
+[18/May/2026 09:54:36] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 09:54:41] "GET /players/ HTTP/1.1" 200 73408
+[18/May/2026 09:55:16] "GET /player/Praveer HTTP/1.1" 200 62474
+[18/May/2026 09:55:30,348] - Broken pipe from ('152.57.11.194', 43264)
+[18/May/2026 09:55:30,348] - Broken pipe from ('152.57.11.194', 43254)
+[18/May/2026 10:38:45] "GET / HTTP/1.1" 200 37376
+[18/May/2026 10:41:25] "GET / HTTP/1.1" 200 37376
+[18/May/2026 10:43:23] code 400, message Bad request version ('À\x14À')
+[18/May/2026 10:43:23] You're accessing the development server over HTTPS, but it only supports HTTP.
+[18/May/2026 10:44:49] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03Êàtòû\x05hÔÒ\x0f¹\x8bð[\x15ÉÃ\x89\xad]\x16÷\x92ú\x12Ú\x15Fé}{d\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[18/May/2026 10:44:49] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /favicon.ico
+[18/May/2026 15:12:26] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 15:12:27] "GET /matches/ HTTP/1.1" 200 41818
+[18/May/2026 15:12:36] "GET /players/ HTTP/1.1" 200 73408
+[18/May/2026 15:12:45] "GET /players/?sort=wickets HTTP/1.1" 200 73411
+[18/May/2026 15:13:01] "GET /players/?sort=economy HTTP/1.1" 200 73413
+[18/May/2026 15:13:10] "GET /players/?sort=strike_rate HTTP/1.1" 200 73418
+[18/May/2026 15:13:19] "GET /players/?sort=runs HTTP/1.1" 200 73408
+[18/May/2026 15:14:55] "GET /players HTTP/1.1" 301 0
+[18/May/2026 15:14:55] "GET /players/ HTTP/1.1" 200 73408
+Not Found: /favicon.ico
+[18/May/2026 15:14:55] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 15:15:02] "GET /players/?sort=economy HTTP/1.1" 200 73413
+[18/May/2026 15:15:05] "GET /players/?sort=wickets HTTP/1.1" 200 73411
+[18/May/2026 15:15:08] "GET /player/Amogh HTTP/1.1" 200 62477
+[18/May/2026 15:16:23] "GET /matches/ HTTP/1.1" 200 41818
+[18/May/2026 15:16:29] "GET /game/20260517_140550_WOZWfl HTTP/1.1" 200 61130
+[18/May/2026 15:16:41] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 61804
+[18/May/2026 15:16:54] "GET /game/20260510_140745_2JH6Yh HTTP/1.1" 200 69185
+[18/May/2026 15:17:00] "GET /game/20260510_121308_6gJsca HTTP/1.1" 200 63776
+[18/May/2026 15:17:12] "GET /players/ HTTP/1.1" 200 73408
+[18/May/2026 15:17:46] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[18/May/2026 15:17:47] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 15:17:57] "GET /players HTTP/1.1" 301 0
+[18/May/2026 15:17:57] "GET /players/ HTTP/1.1" 200 73402
+[18/May/2026 15:18:04] "GET /players/?sort=wickets HTTP/1.1" 200 73405
+Not Found: /favicon.ico
+[18/May/2026 15:18:55] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 15:19:57] "GET /players/?sort=runs HTTP/1.1" 200 73402
+[18/May/2026 15:19:58] "GET /players/?sort=strike_rate HTTP/1.1" 200 73418
+[18/May/2026 15:20:03] "GET /players/?sort=economy HTTP/1.1" 200 73413
+[18/May/2026 15:20:06] "GET /player/Deepak HTTP/1.1" 200 62436
+[18/May/2026 15:20:51] "GET /players/?sort=economy HTTP/1.1" 200 73407
+[18/May/2026 15:21:00] "GET /player/Deepak HTTP/1.1" 200 62436
+[18/May/2026 15:21:07] "GET /player/Deepak HTTP/1.1" 200 62430
+[18/May/2026 15:21:16] "GET /player/Amogh HTTP/1.1" 200 62471
+[18/May/2026 15:21:23] "GET /player/Amogh HTTP/1.1" 200 62477
+[18/May/2026 15:21:58] "GET /player/Deepak HTTP/1.1" 200 62436
+[18/May/2026 15:22:19] "GET /players/?sort=runs HTTP/1.1" 200 73408
+[18/May/2026 15:22:25] "GET /player/Harsha HTTP/1.1" 200 62462
+[18/May/2026 15:22:31] "GET /player/Ravi HTTP/1.1" 200 62481
+[18/May/2026 15:22:35] "GET /player/Karthik HTTP/1.1" 200 62444
+[18/May/2026 15:22:45] "GET /player/Yamnur HTTP/1.1" 200 55216
+[18/May/2026 15:23:13] "GET /player/Praveer HTTP/1.1" 200 62474
+[18/May/2026 15:23:20] "GET /player/Praveer HTTP/1.1" 200 62468
+[18/May/2026 15:26:42,122] - Broken pipe from ('152.57.23.194', 49170)
+[18/May/2026 17:33:22] code 400, message Bad request version ('À\x14À')
+[18/May/2026 17:33:22] You're accessing the development server over HTTPS, but it only supports HTTP.
+[18/May/2026 17:33:23] code 400, message Bad request version ('À\x14À')
+[18/May/2026 17:33:23] You're accessing the development server over HTTPS, but it only supports HTTP.
+[18/May/2026 17:33:23] "GET / HTTP/1.1" 200 37376
+[18/May/2026 17:33:23] "GET /login HTTP/1.1" 301 0
+[18/May/2026 17:33:24] "GET /login/ HTTP/1.1" 200 33528
+Not Found: /AGENTS.md
+[18/May/2026 17:33:24] "GET /AGENTS.md HTTP/1.1" 404 4224
+[18/May/2026 18:24:16] code 400, message Bad request version ('À\x14À')
+[18/May/2026 18:24:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+[18/May/2026 18:24:25] "GET / HTTP/1.1" 200 37376
+[18/May/2026 18:24:27] code 505, message Invalid HTTP version (2.0)
+[18/May/2026 18:24:27] "PRI * HTTP/2.0" 505 -
+Not Found: /favicon.ico
+[18/May/2026 18:24:31] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 18:25:31] code 400, message Bad request version ('À\x14À')
+[18/May/2026 18:25:31] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.well-known/security.txt
+[18/May/2026 18:25:34] "GET /.well-known/security.txt HTTP/1.1" 404 4269
+Not Found: /favicon.ico
+[18/May/2026 19:16:58] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 22:24:53] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[18/May/2026 22:24:56] "GET /favicon.ico HTTP/1.1" 404 4230
+[18/May/2026 22:25:01] "GET /matches HTTP/1.1" 301 0
+[18/May/2026 22:25:01] "GET /matches/ HTTP/1.1" 200 41812
+[18/May/2026 22:25:08] "GET /players HTTP/1.1" 301 0
+[18/May/2026 22:25:08] "GET /players/ HTTP/1.1" 200 73402
+[18/May/2026 22:36:28,459] - Broken pipe from ('103.214.63.85', 50088)
+[18/May/2026 22:44:30,497] - Broken pipe from ('103.214.63.85', 52592)
+[18/May/2026 22:44:30,497] - Broken pipe from ('103.214.63.85', 52594)
+[19/May/2026 00:11:45] code 400, message Bad request version (':í¬')
+[19/May/2026 00:11:45] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 00:11:45] code 400, message Bad request syntax ('MGLNDD_65.2.127.71_8000')
+[19/May/2026 00:11:45] "MGLNDD_65.2.127.71_8000" 400 -
+[19/May/2026 01:26:13] "GET / HTTP/1.1" 200 37376
+[19/May/2026 09:37:49] "GET / HTTP/1.1" 200 37376
+[19/May/2026 09:37:55,169] - Broken pipe from ('205.210.31.207', 63876)
+Not Found: /favicon.ico
+[19/May/2026 10:41:58] "GET /favicon.ico HTTP/1.1" 404 4230
+Not Found: /favicon.ico
+[19/May/2026 11:26:47] "GET /favicon.ico HTTP/1.1" 404 4230
+[19/May/2026 12:18:32] "GET / HTTP/1.1" 200 37376
+[19/May/2026 13:08:42] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[19/May/2026 13:08:42] "GET /favicon.ico HTTP/1.1" 404 4230
+[19/May/2026 13:08:48] "GET / HTTP/1.1" 200 37376
+[19/May/2026 13:08:48] "GET /players HTTP/1.1" 301 0
+[19/May/2026 13:08:49] "GET /players/ HTTP/1.1" 200 73402
+Not Found: /favicon.ico
+[19/May/2026 13:08:51] "GET /favicon.ico HTTP/1.1" 404 4230
+[19/May/2026 13:10:04] "GET /players/ HTTP/1.1" 200 73402
+[19/May/2026 13:10:25,198] - Broken pipe from ('152.57.47.86', 52724)
+[19/May/2026 13:10:25,202] - Broken pipe from ('152.57.47.86', 48068)
+[19/May/2026 13:26:43] "GET / HTTP/1.1" 200 37376
+[19/May/2026 13:29:15] "GET / HTTP/1.1" 200 37376
+[19/May/2026 13:30:05] code 400, message Bad request syntax ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03:¹\x92\x010')
+[19/May/2026 13:30:05] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 13:31:30] code 400, message Bad request version ('À\x14À')
+[19/May/2026 13:31:30] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 14:03:11] code 400, message Bad request version ('À\x14À')
+[19/May/2026 14:03:11] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /favicon.ico
+[19/May/2026 17:24:47] "GET /favicon.ico HTTP/1.1" 404 4230
+[19/May/2026 18:38:40] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[19/May/2026 18:38:41] "GET /favicon.ico HTTP/1.1" 404 4225
+[19/May/2026 18:40:27] code 400, message Bad request syntax ('\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x03yLtÏ¢\x8b0\x01Ë\x01Öyvì1æ1ÜïëÑý4^û')
+[19/May/2026 18:40:27] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 18:40:30] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 18:43:58] code 400, message Bad request version ('À\x13À')
+[19/May/2026 18:43:58] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 18:44:02] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 18:45:07] code 400, message Bad request version ('À\x13À')
+[19/May/2026 18:45:07] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 18:45:11] code 400, message Bad request version ('À\x13À')
+[19/May/2026 18:45:11] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 18:45:13] "GET /.git/config HTTP/1.1" 404 4230
+Not Found: /.git/config
+[19/May/2026 18:45:16] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 18:45:36] code 400, message Bad request version ('À\x13À')
+[19/May/2026 18:45:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 18:45:38] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 18:46:15] code 400, message Bad request version ('À\x13À')
+[19/May/2026 18:46:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 18:46:16] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 19:28:40] "GET / HTTP/1.1" 200 37376
+[19/May/2026 19:30:30] "GET / HTTP/1.0" 200 37376
+Not Found: /favicon.ico
+[19/May/2026 19:37:35] "GET /favicon.ico HTTP/1.1" 404 4230
+[19/May/2026 19:45:38] "GET / HTTP/1.1" 200 37376
+[19/May/2026 19:47:30] "GET / HTTP/1.0" 200 37376
+[19/May/2026 20:23:53] code 400, message Bad request version ('À\x13À')
+[19/May/2026 20:23:53] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 20:23:58] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 20:24:21] code 400, message Bad request version ('\x97Üó\\t\x9b°ðâñö')
+[19/May/2026 20:24:21] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 20:24:25] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 20:24:31] code 400, message Bad request syntax ('\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x03ñ')
+[19/May/2026 20:24:31] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 20:24:36] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 20:24:37] code 400, message Bad request version ('\x96\x0e')
+[19/May/2026 20:24:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 20:24:38] code 400, message Bad request version ('À\x13À')
+[19/May/2026 20:24:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 20:24:40] "GET /.git/config HTTP/1.1" 404 4230
+Not Found: /.git/config
+[19/May/2026 20:24:40] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 20:24:40] code 400, message Bad request version ('À\x13À')
+[19/May/2026 20:24:40] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 20:24:43] code 400, message Bad request version ('ø\x8cüÞ§)þ\x9cÚ')
+[19/May/2026 20:24:43] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 20:24:46] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 20:24:48] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x032\x8f±\x19jßa\x81Å¹¶\x00]\x14¥ÙrÆÞEû»|¸7X×r¤\x92$e')
+[19/May/2026 20:24:48] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 20:24:48] code 400, message Bad request version ('À\x13À')
+[19/May/2026 20:24:48] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 20:24:50] code 400, message Bad request version ('À\x13À')
+[19/May/2026 20:24:50] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 20:24:55] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 20:24:56] code 400, message Bad request version ('À\x13À')
+[19/May/2026 20:24:56] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 20:25:01] code 400, message Bad request version ('À\x13À')
+[19/May/2026 20:25:01] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 20:25:02] "GET /.git/config HTTP/1.1" 404 4230
+Not Found: /.git/config
+[19/May/2026 20:25:03] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 20:25:04] code 400, message Bad request version ('À\x13À')
+[19/May/2026 20:25:04] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[19/May/2026 20:25:06] "GET /.git/config HTTP/1.1" 404 4230
+Not Found: /.git/config
+[19/May/2026 20:25:08] "GET /.git/config HTTP/1.1" 404 4230
+[19/May/2026 20:54:57] code 400, message Bad request version ('À\x13À')
+[19/May/2026 20:54:57] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 22:15:04] code 400, message Bad request version ('À\x13À')
+[19/May/2026 22:15:04] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 22:31:28] code 400, message Bad request version ('À\x13À')
+[19/May/2026 22:31:28] You're accessing the development server over HTTPS, but it only supports HTTP.
+[19/May/2026 23:07:03,277] - Broken pipe from ('80.87.206.227', 16882)
+[19/May/2026 23:40:49,189] - Broken pipe from ('101.0.62.73', 44410)
+[20/May/2026 00:10:07] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[20/May/2026 00:10:08] "GET /favicon.ico HTTP/1.1" 404 4230
+[20/May/2026 00:21:24] code 400, message Bad request version ('À\x14À')
+[20/May/2026 00:21:24] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 00:21:27] "GET / HTTP/1.1" 200 37376
+[20/May/2026 00:21:29] code 505, message Invalid HTTP version (2.0)
+[20/May/2026 00:21:29] "PRI * HTTP/2.0" 505 -
+Not Found: /favicon.ico
+[20/May/2026 00:21:30] "GET /favicon.ico HTTP/1.1" 404 4230
+[20/May/2026 00:21:41] code 400, message Bad request version ('SWç\x08zNÝä)Î')
+[20/May/2026 00:21:41] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /sitemap.xml
+[20/May/2026 00:21:43] "GET /sitemap.xml HTTP/1.1" 404 4230
+[20/May/2026 02:00:38] "GET / HTTP/1.1" 200 37376
+[20/May/2026 02:12:01] code 400, message Bad request version ('À\x14À')
+[20/May/2026 02:12:01] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 02:12:01] code 400, message Bad request syntax ('MGLNDD_65.2.127.71_8000')
+[20/May/2026 02:12:01] "MGLNDD_65.2.127.71_8000" 400 -
+[20/May/2026 03:21:26] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x03\x9fx¥\x8cÅt\x82RBþ\x88Õ1\x14¼\x84E\x89\x0f')
+[20/May/2026 03:21:26] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 03:21:26] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 03:27:23] code 400, message Bad request version ('À\x13À')
+[20/May/2026 03:27:23] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 03:58:37] code 400, message Bad request version ('À\x13À')
+[20/May/2026 03:58:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:10:28] code 400, message Bad request version ('À\x14À')
+[20/May/2026 04:10:28] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:10:29] "GET / HTTP/1.1" 200 37376
+[20/May/2026 04:10:32] code 505, message Invalid HTTP version (2.0)
+[20/May/2026 04:10:32] "PRI * HTTP/2.0" 505 -
+Not Found: /favicon.ico
+[20/May/2026 04:10:33] "GET /favicon.ico HTTP/1.1" 404 4230
+[20/May/2026 04:10:40] code 400, message Bad request version ('À\x14À')
+[20/May/2026 04:10:40] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:10:41] code 400, message Bad request version ('À\x13À')
+[20/May/2026 04:10:41] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /sitemap.xml
+[20/May/2026 04:10:42] "GET /sitemap.xml HTTP/1.1" 404 4230
+[20/May/2026 04:19:27] code 400, message Bad request version ('À\x13À')
+[20/May/2026 04:19:27] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 04:19:28] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 04:28:20] code 400, message Bad request version ('À\x13À')
+[20/May/2026 04:28:20] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:29:16] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x03`@ø>\x84\x13½\x8b*')
+[20/May/2026 04:29:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:29:16] code 400, message Bad request version ('´\x9ek')
+[20/May/2026 04:29:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:29:16] code 400, message Bad request version ('À\x13À')
+[20/May/2026 04:29:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:29:16] code 400, message Bad request version ('À\x13À')
+[20/May/2026 04:29:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:29:16] code 400, message Bad request version ('À\x13À')
+[20/May/2026 04:29:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:29:16] code 400, message Bad request version ('À\x13À')
+[20/May/2026 04:29:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:29:16] code 400, message Bad request syntax ('\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x03o')
+[20/May/2026 04:29:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:29:16] code 400, message Bad HTTP/0.9 request type ("\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x03;\x8c>W\x89S¨³ÌL'\x17O\x11§è\\0NÄUZ\x8c\x98¤ÒÜ\x87£µ\x1b\x9d")
+[20/May/2026 04:29:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 04:29:16] code 400, message Bad request version ('À\x13À')
+[20/May/2026 04:29:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /app/.env.local
+[20/May/2026 04:29:17] "GET /admin/.env HTTP/1.1" 302 0
+Not Found: /api/.env
+[20/May/2026 04:29:17] "GET /app/.env.local HTTP/1.1" 404 4239
+Not Found: /.env
+[20/May/2026 04:29:17] "GET /api/.env HTTP/1.1" 404 4221
+Not Found: /.env.docker
+Not Found: /app/.env
+[20/May/2026 04:29:17] "GET /.env HTTP/1.1" 404 4209
+[20/May/2026 04:29:17] "GET /.env.docker HTTP/1.1" 404 4230
+[20/May/2026 04:29:17] "GET /app/.env HTTP/1.1" 404 4221
+Not Found: /.env.dev.local
+[20/May/2026 04:29:17] "GET /.env.dev.local HTTP/1.1" 404 4239
+Not Found: /.env.development.local
+Not Found: /.env.local
+[20/May/2026 04:29:17] "GET /.env.development.local HTTP/1.1" 404 4263
+[20/May/2026 04:29:17] "GET /.env.local HTTP/1.1" 404 4227
+[20/May/2026 04:29:17] code 400, message Bad request version ('À\x13À')
+[20/May/2026 04:29:17] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.env.dev
+[20/May/2026 04:29:18] "GET /.env.dev HTTP/1.1" 404 4221
+[20/May/2026 04:47:42] code 400, message Bad request version ('À\x13À')
+[20/May/2026 04:47:42] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 04:47:46] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 05:18:41] code 400, message Bad request version ('À\x13À')
+[20/May/2026 05:18:41] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 05:18:42] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 05:32:26] code 400, message Bad request version ('À\x13À')
+[20/May/2026 05:32:26] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 05:32:27] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 05:54:49] "GET / HTTP/1.1" 200 37376
+[20/May/2026 05:56:26] code 400, message Bad request version ('À\x13À')
+[20/May/2026 05:56:26] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 05:56:27] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 06:08:37] "GET / HTTP/1.1" 200 37376
+[20/May/2026 06:08:37,553] - Broken pipe from ('64.62.197.107', 20100)
+Not Found: /favicon.ico
+[20/May/2026 06:09:38] "GET /favicon.ico HTTP/1.1" 404 4230
+Not Found: /http:/api.ipify.org/
+[20/May/2026 06:10:10] "GET http://api.ipify.org/?format=json HTTP/1.1" 404 1818
+Not Found: /www.shadowserver.org:443
+[20/May/2026 06:10:20] "CONNECT www.shadowserver.org:443 HTTP/1.1" 404 1827
+[20/May/2026 06:17:09] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x03%TäÓ7QUvê4ÇZo\x91Ö1ÎeRX?Õ\x93Û,x')
+[20/May/2026 06:17:09] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 06:17:09] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 06:22:28] code 400, message Bad request version ('À\x13À')
+[20/May/2026 06:22:28] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 06:22:32] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 06:23:37] code 400, message Bad request version ('À\x13À')
+[20/May/2026 06:23:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 06:23:37] code 400, message Bad request version ('À\x13À')
+[20/May/2026 06:23:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 06:23:37] code 400, message Bad request version ('À\x13À')
+[20/May/2026 06:23:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 06:23:37] code 400, message Bad request version ('À\x13À')
+[20/May/2026 06:23:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 06:23:37] code 400, message Bad request version ('À\x13À')
+[20/May/2026 06:23:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 06:23:37] code 400, message Bad request version ('7+ó\x98Öë\x15\x96Z#,MV\x92')
+[20/May/2026 06:23:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.env.local
+[20/May/2026 06:23:38] "GET /.env.local HTTP/1.1" 404 4227
+Not Found: /.env
+[20/May/2026 06:23:38] "GET /.env HTTP/1.1" 404 4209
+Not Found: /.env.docker
+Not Found: /api/.env
+[20/May/2026 06:23:38] "GET /.env.docker HTTP/1.1" 404 4230
+[20/May/2026 06:23:38] "GET /api/.env HTTP/1.1" 404 4221
+[20/May/2026 06:23:38] "GET /admin/.env HTTP/1.1" 302 0
+Not Found: /app/.env
+[20/May/2026 06:23:38] "GET /app/.env HTTP/1.1" 404 4221
+[20/May/2026 06:23:38] code 400, message Bad request version ('À\x13À')
+[20/May/2026 06:23:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 06:23:38] code 400, message Bad request version ('À\x13À')
+[20/May/2026 06:23:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 06:23:38] code 400, message Bad request version ('À\x13À')
+[20/May/2026 06:23:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 06:23:38] code 400, message Bad request syntax ('\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x03O')
+[20/May/2026 06:23:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.env.dev.local
+[20/May/2026 06:23:38] "GET /.env.dev.local HTTP/1.1" 404 4239
+Not Found: /.env.development.local
+[20/May/2026 06:23:38] "GET /.env.development.local HTTP/1.1" 404 4263
+Not Found: /app/.env.local
+[20/May/2026 06:23:38] "GET /app/.env.local HTTP/1.1" 404 4239
+Not Found: /.env.dev
+[20/May/2026 06:23:38] "GET /.env.dev HTTP/1.1" 404 4221
+[20/May/2026 08:21:22] code 400, message Bad request version ('À#À¬À®À+À')
+[20/May/2026 08:21:22] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 08:21:26] "GET / HTTP/1.1" 200 37376
+[20/May/2026 09:29:27] "GET / HTTP/1.1" 200 37376
+[20/May/2026 09:29:28] code 400, message Bad request version ('\x00\x04\x03\x00\x01\x02\x00')
+[20/May/2026 09:29:28] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 12:55:58] "GET / HTTP/1.1" 200 37376
+[20/May/2026 13:03:57] "GET / HTTP/1.1" 200 37376
+[20/May/2026 13:05:13] "GET / HTTP/1.1" 200 37376
+[20/May/2026 13:06:33] code 400, message Bad request version ('À\x14À')
+[20/May/2026 13:06:33] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:07:51] code 400, message Bad request version ('À\x14À')
+[20/May/2026 13:07:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:37:01] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:37:01] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:37:01] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:37:01] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 13:37:01] "GET /.git/config HTTP/1.1" 404 4230
+Not Found: /.git/config
+[20/May/2026 13:37:04] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 13:59:36] code 400, message Bad request version ('ãÔóV°ôÜ')
+[20/May/2026 13:59:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:36] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:36] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:36] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:36] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:36] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:36] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:36] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:36] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:36] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:38] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:38] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:38] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:38] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:38] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:38] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x033+?¶T\x05ëvûÑàGÇë\x00;/2ô\x1aÍ\x7f$¥vkòò]÷AÝ')
+[20/May/2026 13:59:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:38] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:38] code 400, message Bad request version ('\x02\x9eÖÙ1¥½\x18\x81J)à÷\x02n')
+[20/May/2026 13:59:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:38] code 400, message Bad request syntax ('\x16\x03\x01\x00ê\x01\x00\x00æ\x03\x03ñ«ñÑ7<Jk\x8býÐI\x9a¶')
+[20/May/2026 13:59:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 13:59:38] code 400, message Bad request version ('À\x13À')
+[20/May/2026 13:59:38] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /actuator/heapdump
+[20/May/2026 13:59:38] "GET /actuator/heapdump HTTP/1.1" 404 4248
+Not Found: /heapdump
+[20/May/2026 13:59:38] "GET /heapdump HTTP/1.1" 404 4221
+Not Found: /configprops
+[20/May/2026 13:59:38] "GET /configprops HTTP/1.1" 404 4230
+Not Found: /env
+[20/May/2026 13:59:38] "GET /env HTTP/1.1" 404 4206
+Not Found: /actuator/configprops
+[20/May/2026 13:59:38] "GET /actuator/configprops HTTP/1.1" 404 4257
+Not Found: /actuator/env
+[20/May/2026 13:59:38] "GET /actuator/env HTTP/1.1" 404 4233
+Not Found: /profiler/phpinfo
+[20/May/2026 13:59:38] "GET /profiler/phpinfo HTTP/1.1" 404 4245
+Not Found: /docker-compose.yml
+[20/May/2026 13:59:39] "GET /docker-compose.yml HTTP/1.1" 404 4251
+Not Found: /docker-compose.prod.yml
+[20/May/2026 13:59:39] "GET /docker-compose.prod.yml HTTP/1.1" 404 4266
+Not Found: /profiler
+[20/May/2026 13:59:39] "GET /profiler HTTP/1.1" 404 4221
+[20/May/2026 14:07:15] "GET / HTTP/1.1" 200 37382
+Not Found: /favicon.ico
+[20/May/2026 14:07:15] "GET /favicon.ico HTTP/1.1" 404 4230
+[20/May/2026 14:07:18] "GET /matches/ HTTP/1.1" 200 41818
+[20/May/2026 14:08:01] "GET /players/ HTTP/1.1" 200 73408
+[20/May/2026 14:08:11] "GET /players/?sort=economy HTTP/1.1" 200 73413
+[20/May/2026 14:08:22] "GET /player/Deepak HTTP/1.1" 200 62436
+[20/May/2026 14:09:40] "GET /players/ HTTP/1.1" 200 73408
+[20/May/2026 14:09:50] "GET /players/?sort=wickets HTTP/1.1" 200 73411
+[20/May/2026 14:10:04] "GET /players/?sort=economy HTTP/1.1" 200 73413
+[20/May/2026 14:10:36] "GET /players/?sort=strike_rate HTTP/1.1" 200 73418
+[20/May/2026 14:10:53] code 400, message Bad request version ('À\x13À')
+[20/May/2026 14:10:53] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 14:10:54] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 14:10:56] "GET /player/Karthik HTTP/1.1" 200 62444
+[20/May/2026 14:11:00] "GET /player/Harsha HTTP/1.1" 200 62462
+[20/May/2026 14:11:03] "GET /player/Santhu HTTP/1.1" 200 62460
+[20/May/2026 14:11:07] "GET /player/Deepak HTTP/1.1" 200 62436
+[20/May/2026 14:11:20] "GET /player/Ravi HTTP/1.1" 200 62481
+[20/May/2026 14:11:27] "GET /player/Abhi HTTP/1.1" 200 60640
+[20/May/2026 14:11:33] "GET /player/Uttham HTTP/1.1" 200 62460
+[20/May/2026 14:11:37] "GET /player/Devraj HTTP/1.1" 200 58853
+[20/May/2026 14:11:43] "GET /player/Vinod HTTP/1.1" 200 58836
+[20/May/2026 14:11:49] "GET /player/Nithin HTTP/1.1" 200 58862
+[20/May/2026 14:12:00] "GET /player/Keshav HTTP/1.1" 200 62439
+[20/May/2026 14:12:18] "GET /players/?sort=runs HTTP/1.1" 200 73408
+[20/May/2026 14:12:45] "GET /player/Praveer HTTP/1.1" 200 62474
+[20/May/2026 14:16:42,783] - Broken pipe from ('49.37.250.29', 43336)
+[20/May/2026 14:16:42,785] - Broken pipe from ('49.37.250.29', 43346)
+[20/May/2026 15:07:00] code 400, message Bad request version ('À\x13À')
+[20/May/2026 15:07:00] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 15:07:01] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 15:09:56] "GET / HTTP/1.1" 200 37376
+[20/May/2026 15:09:58] code 400, message Bad request version ('À\x13À')
+[20/May/2026 15:09:58] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 15:09:59] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 15:11:50] "GET / HTTP/1.1" 200 37376
+[20/May/2026 15:12:40] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03<éPi±ò.£§d\x04¤y;º3°ÈèÎ·Øý\x80ë§\x9dMà°C\x02\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[20/May/2026 15:12:40] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 15:14:30] code 400, message Bad HTTP/0.9 request type ("\x16\x03\x01\x00{\x01\x00\x00w\x03\x03\x16ÚS\x0eÏ×Úü±CD@aÔ\x97ü\x94åsZ^L\x02nø\x83\x8a((_'\x00\x00\x00\x1aÀ/À+À\x11À\x07À\x13À")
+[20/May/2026 15:14:30] You're accessing the development server over HTTPS, but it only supports HTTP.
+[20/May/2026 15:30:20] code 400, message Bad request version ('À\x13À')
+[20/May/2026 15:30:20] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.git/config
+[20/May/2026 15:30:22] "GET /.git/config HTTP/1.1" 404 4230
+[20/May/2026 16:13:41] code 400, message Bad request version ('À\x13À')
+[20/May/2026 16:13:41] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /favicon.ico
+[20/May/2026 19:09:41] "GET /favicon.ico HTTP/1.1" 404 4230
+[20/May/2026 19:11:42,729] - Broken pipe from ('49.206.18.197', 26452)
+Not Found: /.env
+[21/May/2026 02:19:37] "GET /.env HTTP/1.1" 404 4209
+[21/May/2026 04:30:33] code 400, message Bad request version ('À\x14À')
+[21/May/2026 04:30:33] You're accessing the development server over HTTPS, but it only supports HTTP.
+[21/May/2026 04:30:41] "GET / HTTP/1.1" 200 37376
+[21/May/2026 04:30:43] code 505, message Invalid HTTP version (2.0)
+[21/May/2026 04:30:43] "PRI * HTTP/2.0" 505 -
+Not Found: /favicon.ico
+[21/May/2026 04:30:46] "GET /favicon.ico HTTP/1.1" 404 4230
+[21/May/2026 04:31:56] code 400, message Bad request version ('À\x14À')
+[21/May/2026 04:31:56] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /robots.txt
+[21/May/2026 04:31:58] "GET /robots.txt HTTP/1.1" 404 4227
+[21/May/2026 05:25:15] "GET / HTTP/1.1" 200 37376
+[21/May/2026 08:07:03] code 400, message Bad request syntax ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03âË')
+[21/May/2026 08:07:03] You're accessing the development server over HTTPS, but it only supports HTTP.
+[21/May/2026 08:07:03] code 400, message Bad request syntax ('MGLNDD_65.2.127.71_8000')
+[21/May/2026 08:07:03] "MGLNDD_65.2.127.71_8000" 400 -
+[21/May/2026 08:41:42] "GET / HTTP/1.1" 200 37376
+[21/May/2026 08:41:43] code 400, message Bad request syntax ('MGLNDD_65.2.127.71_8000')
+[21/May/2026 08:41:43] "MGLNDD_65.2.127.71_8000" 400 -
+[21/May/2026 10:56:57] "GET / HTTP/1.1" 200 37376
+[21/May/2026 10:59:49] "GET / HTTP/1.1" 200 37376
+[21/May/2026 11:00:36] code 400, message Bad request version ('À\x14À')
+[21/May/2026 11:00:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[21/May/2026 11:02:34] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03\x83-d²[\x19\x90Î?\x7f\x05\x95>öUó\\",isq¢IÚg7¡ÉÃ_\x1a\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[21/May/2026 11:02:34] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /.env
+[21/May/2026 11:37:07] "GET /.env HTTP/1.1" 404 4209
+[21/May/2026 11:50:48] "GET / HTTP/1.1" 200 37376
+[21/May/2026 11:52:57] "GET / HTTP/1.1" 200 37376
+[21/May/2026 11:54:36] code 400, message Bad request version ('À\x14À')
+[21/May/2026 11:54:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+[21/May/2026 11:56:12] code 400, message Bad request version ('À\x14À')
+[21/May/2026 11:56:12] You're accessing the development server over HTTPS, but it only supports HTTP.
+[21/May/2026 12:11:44] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[21/May/2026 12:11:45] "GET /favicon.ico HTTP/1.1" 404 4230
+[21/May/2026 12:11:48] "GET /matches HTTP/1.1" 301 0
+[21/May/2026 12:11:48] "GET /matches/ HTTP/1.1" 200 41812
+[21/May/2026 12:11:52] "GET /game/20260510_121308_6gJsca HTTP/1.1" 200 68056
+[21/May/2026 12:11:53] "GET /game_details/20260510_121308_6gJsca HTTP/1.1" 200 4091
+[21/May/2026 12:12:24] "GET /game/20260510_140745_2JH6Yh HTTP/1.1" 200 68056
+[21/May/2026 12:12:24] "GET /game_details/20260510_140745_2JH6Yh HTTP/1.1" 200 5128
+[21/May/2026 12:12:45] "GET /game/20260517_122902_sNnUqI HTTP/1.1" 200 68056
+[21/May/2026 12:12:45] "GET /game_details/20260517_122902_sNnUqI HTTP/1.1" 200 4353
+[21/May/2026 12:13:25] "GET /game/20260517_140550_WOZWfl HTTP/1.1" 200 68056
+[21/May/2026 12:13:25] "GET /game_details/20260517_140550_WOZWfl HTTP/1.1" 200 4361
+[21/May/2026 15:04:49,400] - Broken pipe from ('66.132.195.73', 34012)
+[21/May/2026 15:04:53] "GET / HTTP/1.1" 200 37376
+[21/May/2026 15:04:53,936] - Broken pipe from ('66.132.195.73', 34028)
+[21/May/2026 15:04:59] code 400, message Bad request version ('À\x14À')
+[21/May/2026 15:04:59] You're accessing the development server over HTTPS, but it only supports HTTP.
+[21/May/2026 15:05:01] "GET / HTTP/1.1" 200 37376
+[21/May/2026 15:05:03] code 505, message Invalid HTTP version (2.0)
+[21/May/2026 15:05:03] "PRI * HTTP/2.0" 505 -
+Not Found: /favicon.ico
+[21/May/2026 15:05:05] "GET /favicon.ico HTTP/1.1" 404 4230
+[21/May/2026 15:05:22] code 400, message Bad request version ('À\x14À')
+[21/May/2026 15:05:22] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /robots.txt
+[21/May/2026 15:05:26] "GET /robots.txt HTTP/1.1" 404 4227
+Not Found: /favicon.ico
+[21/May/2026 15:19:38] "GET /favicon.ico HTTP/1.1" 404 4230
+[21/May/2026 15:19:40] "GET /players/?sort=wickets HTTP/1.1" 200 73411
+[21/May/2026 15:19:49] "GET /players/?sort=economy HTTP/1.1" 200 73413
+[21/May/2026 15:19:59] "GET /player/Deepak HTTP/1.1" 200 62436
+[21/May/2026 15:24:48,433] - Broken pipe from ('152.57.128.38', 37490)
+[21/May/2026 15:24:48,433] - Broken pipe from ('152.57.128.38', 37492)
+Not Found: /.env
+[21/May/2026 18:31:16] "GET /.env HTTP/1.1" 404 4209
+Not Found: /proxy2.proxiesfood.com:443
+[21/May/2026 19:21:35] "CONNECT proxy2.proxiesfood.com:443 HTTP/1.1" 404 1839
+[21/May/2026 19:21:35,182] - Broken pipe from ('204.76.203.225', 7399)
+Not Found: /proxy2.proxiesfood.com:443
+[21/May/2026 19:21:35] "CONNECT proxy2.proxiesfood.com:443 HTTP/1.1" 404 1839
+[21/May/2026 19:21:35,546] - Broken pipe from ('204.76.203.226', 14373)
+Not Found: /proxy2.proxiesfood.com:443
+[21/May/2026 19:21:35] "CONNECT proxy2.proxiesfood.com:443 HTTP/1.1" 404 1839
+[21/May/2026 19:21:35,909] - Broken pipe from ('204.76.203.224', 19823)
+[21/May/2026 19:21:44,817] - Broken pipe from ('204.76.203.224', 14217)
+[21/May/2026 19:21:54,817] - Broken pipe from ('204.76.203.225', 8201)
+[21/May/2026 21:59:47] code 400, message Bad request version ('À#À¬À®À+À')
+[21/May/2026 21:59:47] You're accessing the development server over HTTPS, but it only supports HTTP.
+[21/May/2026 21:59:51] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[21/May/2026 22:02:45] "GET /favicon.ico HTTP/1.1" 404 4230
+Not Found: /.env
+[21/May/2026 23:28:58] "GET /.env HTTP/1.1" 404 4209
+[22/May/2026 02:24:46] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[22/May/2026 02:24:47] "GET /favicon.ico HTTP/1.1" 404 4225
+Not Found: /.env
+[22/May/2026 04:16:17] "GET /.env HTTP/1.1" 404 4209
+[22/May/2026 07:43:27] code 400, message Bad request version ('À\x14À')
+[22/May/2026 07:43:27] You're accessing the development server over HTTPS, but it only supports HTTP.
+[22/May/2026 08:48:22] "GET / HTTP/1.0" 200 37376
+[22/May/2026 08:49:01] code 400, message Bad request version ('À\x14À')
+[22/May/2026 08:49:01] You're accessing the development server over HTTPS, but it only supports HTTP.
+[22/May/2026 11:38:27] code 400, message Bad request syntax ('\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x03\x00\x00\x00')
+[22/May/2026 11:38:27] "  à          " 400 -
+[22/May/2026 12:37:09] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[22/May/2026 12:37:12] "GET /favicon.ico HTTP/1.1" 404 4230
+[22/May/2026 12:37:14] "GET /players HTTP/1.1" 301 0
+[22/May/2026 12:37:14] "GET /players/ HTTP/1.1" 200 73402
+[22/May/2026 12:37:19] "GET /players/?sort=runs HTTP/1.1" 200 73402
+[22/May/2026 12:38:15] "GET /players/?sort=wickets HTTP/1.1" 200 73405
+[22/May/2026 12:38:27] "GET /players/?sort=economy HTTP/1.1" 200 73407
+[22/May/2026 12:38:46] "GET /player/Uttham HTTP/1.1" 200 62454
+[22/May/2026 12:38:54] code 400, message Bad request version ('À\x14À')
+[22/May/2026 12:38:54] You're accessing the development server over HTTPS, but it only supports HTTP.
+[22/May/2026 12:38:54] code 400, message Bad request syntax ('MGLNDD_65.2.127.71_8000')
+[22/May/2026 12:38:54] "MGLNDD_65.2.127.71_8000" 400 -
+[22/May/2026 12:38:56] "GET /player/Amogh HTTP/1.1" 200 62471
+[22/May/2026 12:39:01] "GET /player/Ravi HTTP/1.1" 200 62475
+[22/May/2026 12:39:05] "GET /player/Harsha HTTP/1.1" 200 62456
+[22/May/2026 12:39:10] "GET /player/Deepak HTTP/1.1" 200 62430
+[22/May/2026 12:39:19] "GET /player/Player001 HTTP/1.1" 200 58852
+[22/May/2026 12:39:42] "GET /player/Keshav HTTP/1.1" 200 62433
+[22/May/2026 12:40:05] "GET /players/?sort=strike_rate HTTP/1.1" 200 73412
+[22/May/2026 12:40:29] "GET /players/?sort=runs HTTP/1.1" 200 73402
+[22/May/2026 13:04:23] "GET / HTTP/1.1" 200 37376
+[22/May/2026 13:05:32] "GET / HTTP/1.1" 200 37376
+[22/May/2026 13:06:45] code 400, message Bad request version ('À\x14À')
+[22/May/2026 13:06:45] You're accessing the development server over HTTPS, but it only supports HTTP.
+[22/May/2026 13:07:40] code 400, message Bad request version ('À\x14À')
+[22/May/2026 13:07:40] You're accessing the development server over HTTPS, but it only supports HTTP.
+[22/May/2026 14:30:52] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[22/May/2026 14:30:52] "GET /favicon.ico HTTP/1.1" 404 4230
+[22/May/2026 14:30:55] "GET /players/ HTTP/1.1" 200 73402
+[22/May/2026 14:31:12] "GET /player/Santhu HTTP/1.1" 200 62454
+[22/May/2026 14:31:23] "GET /player/Uttham HTTP/1.1" 200 62454
+[22/May/2026 14:31:35] "GET /player/Harsha HTTP/1.1" 200 62456
+[22/May/2026 14:31:44] "GET /players/?sort=wickets HTTP/1.1" 200 73405
+[22/May/2026 14:31:50] "GET /player/Devraj HTTP/1.1" 200 58847
+[22/May/2026 14:32:05] "GET /players/?sort=runs HTTP/1.1" 200 73402
+[22/May/2026 15:21:05] code 400, message Bad request version ('À\x14À')
+[22/May/2026 15:21:05] You're accessing the development server over HTTPS, but it only supports HTTP.
+[22/May/2026 15:21:18] "GET / HTTP/1.1" 200 37376
+[22/May/2026 15:21:22] code 505, message Invalid HTTP version (2.0)
+[22/May/2026 15:21:22] "PRI * HTTP/2.0" 505 -
+[22/May/2026 15:22:50] code 400, message Bad request version ('À\x14À')
+[22/May/2026 15:22:50] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /robots.txt
+[22/May/2026 15:22:52] "GET /robots.txt HTTP/1.1" 404 4227
+Not Found: /favicon.ico
+[22/May/2026 16:48:06] "GET /favicon.ico HTTP/1.1" 404 4230
+[22/May/2026 17:38:44] "GET / HTTP/1.1" 200 37376
+[22/May/2026 17:38:44,914] - Broken pipe from ('198.235.24.215', 63914)
+Not Found: /favicon.ico
+[22/May/2026 18:52:00] "GET /favicon.ico HTTP/1.1" 404 4230
+[22/May/2026 19:07:38] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[22/May/2026 19:07:38] "GET /favicon.ico HTTP/1.1" 404 4230
+Not Found: /favicon.ico
+[22/May/2026 19:27:11] "GET /favicon.ico HTTP/1.1" 404 4230
+Not Found: /favicon.ico
+[22/May/2026 23:16:00] "GET /favicon.ico HTTP/1.1" 404 4230
+[22/May/2026 23:16:02] "GET /players/?sort=economy HTTP/1.1" 200 73413
+[22/May/2026 23:16:06] "GET /players/?sort=economy HTTP/1.1" 200 73413
