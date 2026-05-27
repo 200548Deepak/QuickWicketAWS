@@ -148,6 +148,47 @@ def matches(request):
     matches = Match.objects.filter()
     return render(request,"matches.html",{"matches":matches})
 
+
+def get_last_two_overs(m):
+    """Return up to two overs for display.
+    Prefer the most recent completed over stored in `recent_overs` and the
+    current `ball_record` (in-progress). Returned list is ordered left->right
+    as older then newer (e.g. [previous_over, current_over]).
+    """
+    overs = []
+    recent = getattr(m, 'recent_overs', None) or []
+    current = m.ball_record or []
+
+    last_prev = recent[-1] if recent else None
+
+    if last_prev and current:
+        # previous then current
+        return [list(last_prev), list(current)]
+    if current:
+        return [list(current)]
+    # No current over; show up to two most recent completed overs (older->newer)
+    if recent:
+        sel = recent[-2:]
+        return [list(r) for r in sel]
+    return []
+
+
+def record_completed_over(m):
+    """Move current `ball_record` into `recent_overs` (keeping last 5).
+    Clears `ball_record` afterwards.
+    """
+    try:
+        if getattr(m, 'ball_record', None):
+            recent = getattr(m, 'recent_overs', []) or []
+            recent.append(list(m.ball_record))
+            # keep only last 5 overs
+            m.recent_overs = recent[-5:]
+    except Exception:
+        # if recent_overs doesn't exist or other error, ignore
+        pass
+    # clear current ball record
+    m.ball_record = []
+
 def serialize_player(player):
     return {
         "id": player.id,
@@ -265,6 +306,7 @@ def game_details_json(request, game_id):
         "t1_players": [serialize_player(p) for p in players1],
         "t2_players": [serialize_player(p) for p in players2],
         "ball_record": match.ball_record,
+        "ball_record_two_overs": get_last_two_overs(match),
     }
 
     return JsonResponse(cont, safe=False)
@@ -299,6 +341,7 @@ def game(request, game_id):
     "t1_players":players1,
     "t2_players":players2,
     "ball_record": match.ball_record,
+    "ball_record_two_overs": get_last_two_overs(match),
     }
 
     if str(request.user) == "AnonymousUser":
@@ -320,7 +363,7 @@ def begin_game(request):
                 data = json.loads(request.body)
                 team1 = data.get("team1", [])
                 team2 = data.get("team2", [])
-                toss_winner = data.get("toss_winner","").strip()
+                toss_winner = data.get("toss_winner", "").strip()
                 team1Name = data.get("team1name")
                 team2Name = data.get("team2name")
                 now = datetime.datetime.now()
@@ -375,7 +418,7 @@ def game_update(request):
                     bowler.overs1 = int(bowler.overs1) + 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t1overs1 += Decimal('0.1')
                     bowler.overs1 += 1
@@ -384,7 +427,7 @@ def game_update(request):
                 bowler.bruns1 += runs
                 if match.t1overs1 == Decimal('10.0'):
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                     match.striker = None
                     match.non_striker = None
                     match.batting = match.team2
@@ -398,7 +441,7 @@ def game_update(request):
                     bowler.overs1 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t2overs1 += Decimal('0.1')
                     bowler.overs1 += 1
@@ -407,7 +450,7 @@ def game_update(request):
                 bowler.bruns1 += runs
                 if match.t2overs1 == Decimal('10.0'):
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                     match.striker = None
                     match.non_striker = None
                     match.batting = match.team1
@@ -421,7 +464,7 @@ def game_update(request):
                     bowler.overs2 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t2overs2 += Decimal('0.1')
                     bowler.overs2 += 1
@@ -436,7 +479,7 @@ def game_update(request):
                             match.won = match.team1
                     else:
                         match.bowler = None
-                        match.ball_record = []
+                        record_completed_over(match)
                         match.striker = None
                         match.non_striker = None
                         match.batting = match.team1
@@ -448,7 +491,7 @@ def game_update(request):
                     bowler.overs2 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t1overs2 += Decimal('0.1')
                     bowler.overs2 += 1
@@ -463,7 +506,7 @@ def game_update(request):
                             match.won = match.team1
                     else:
                         match.bowler = None
-                        match.ball_record = []
+                        record_completed_over(match)
                         match.striker = None
                         match.non_striker = None
                         match.batting = match.team2
@@ -485,7 +528,7 @@ def game_update(request):
                     bowler.overs1 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t1overs1 += Decimal('0.1')
                     bowler.overs1 += 1
@@ -499,7 +542,7 @@ def game_update(request):
                 if team1p.count() == 0 or match.t1overs1 == Decimal('10.0'):
                     match.batting = match.team2
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                     match.striker = None
                     match.non_striker = None
                     if match.t2overs1 != Decimal('0.0'):
@@ -513,7 +556,7 @@ def game_update(request):
                     bowler.overs2 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t1overs2 += Decimal('0.1')
                     bowler.overs2 += 1
@@ -532,7 +575,7 @@ def game_update(request):
                     else:
                         match.batting = match.team2
                         match.bowler = None
-                        match.ball_record = []
+                        record_completed_over(match)
                         match.striker = None
                         match.non_striker = None
 
@@ -544,7 +587,7 @@ def game_update(request):
                     bowler.overs1 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t2overs1 += Decimal('0.1')
                     bowler.overs1 += 1
@@ -557,7 +600,7 @@ def game_update(request):
                 if team2p.count() == 0 or match.t2overs1 == Decimal('10.0'):
                     match.batting = match.team1
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                     match.striker = None
                     match.non_striker = None
                     if match.t1overs1 != Decimal('0.0'):
@@ -571,7 +614,7 @@ def game_update(request):
                     bowler.overs2 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t2overs2 += Decimal('0.1')
                     bowler.overs2 += 1
@@ -583,7 +626,7 @@ def game_update(request):
                 team2p = Players.objects.filter(match=match, team=match.team2, out2=False)
                 if team2p.count() == 0 or match.t2overs2 == Decimal('10.0'):
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                     if match.t1overs2 != Decimal('0.0'):
                         if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
                             match.won = match.team2
@@ -591,7 +634,7 @@ def game_update(request):
                             match.won = match.team1
                     else:
                         match.bowler = None
-                        match.ball_record = []
+                        record_completed_over(match)
                         match.striker = None
                         match.non_striker = None
                         match.batting = match.team1
@@ -718,7 +761,7 @@ def game_update(request):
                     bowler.overs1 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t1overs1 += Decimal('0.1')
                     bowler.overs1 += 1
@@ -739,7 +782,7 @@ def game_update(request):
                 if team1p.count() == 0 or match.t1overs1 == Decimal('10.0'):
                     match.batting = match.team2
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                     match.striker = None
                     match.non_striker = None
                     if match.t2overs1 != Decimal('0.0'):
@@ -753,7 +796,7 @@ def game_update(request):
                     bowler.overs2 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t1overs2 += Decimal('0.1')
                     bowler.overs2 += 1
@@ -779,7 +822,7 @@ def game_update(request):
                     else:
                         match.batting = match.team2
                         match.bowler = None
-                        match.ball_record = []
+                        record_completed_over(match)
                         match.striker = None
                         match.non_striker = None
 
@@ -791,7 +834,7 @@ def game_update(request):
                     bowler.overs1 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t2overs1 += Decimal('0.1')
                     bowler.overs1 += 1
@@ -811,7 +854,7 @@ def game_update(request):
                 if team2p.count() == 0 or match.t2overs1 == Decimal('10.0'):
                     match.batting = match.team1
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                     match.striker = None
                     match.non_striker = None
                     if match.t1overs1 != Decimal('0.0'):
@@ -825,7 +868,7 @@ def game_update(request):
                     bowler.overs2 += 1
                     change_bowler = "YES"
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                 else:
                     match.t2overs2 += Decimal('0.1')
                     bowler.overs2 += 1
@@ -844,7 +887,7 @@ def game_update(request):
                 team2p = Players.objects.filter(match=match, team=match.team2, out2=False)
                 if team2p.count() == 0 or match.t2overs2 == Decimal('10.0'):
                     match.bowler = None
-                    match.ball_record = []
+                    record_completed_over(match)
                     if match.t1overs2 != Decimal('0.0'):
                         if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
                             match.won = match.team2
@@ -852,7 +895,1051 @@ def game_update(request):
                             match.won = match.team1
                     else:
                         match.bowler = None
-                        match.ball_record = []
+                        record_completed_over(match)
+                        match.striker = None
+                        match.non_striker = None
+                        match.batting = match.team1
+
+            resolve_winner_if_chased(match)
+            match.save()
+            return JsonResponse({"message": "OK", "Change_bowler": change_bowler, "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "updateWide":
+            match.ball_record.append("Wd")
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1run1 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns1 += 1
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1run2 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns2 += 1
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2run1 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns1 += 1
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2run2 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns2 += 1
+            resolve_winner_if_chased(match)
+            match.save()
+            bowler.save()
+            return JsonResponse({"message": "OK", "Change_bowler": "No", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "updateNB":
+            match.ball_record.append("Nb")
+            runs = int(data.get("runs", 0)) 
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1run1 += runs + 1 
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs1 += runs
+                striker.balls1 +=1
+                bowler.bruns1 += runs + 1  
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1run2 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs2 += runs
+                striker.balls2 +=1
+                bowler.bruns2 += runs + 1
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2run1 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs1 += runs
+                striker.balls1 +=1
+                bowler.bruns1 += runs + 1
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2run2 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs2 += runs
+                striker.balls2 +=1
+                bowler.bruns2 += runs + 1
+
+            resolve_winner_if_chased(match)
+            match.save()
+            striker.save()
+            bowler.save()
+
+            return JsonResponse({"message": "OK", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "changeStrike":
+            temp = match.striker
+            match.striker = match.non_striker
+            match.non_striker = temp
+            match.save()
+            return JsonResponse({"message": "OK", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "strike":
+            new_striker = data.get("new_striker")
+            match.striker = User.objects.get(username=new_striker)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "non-strike":
+            new_striker = data.get("new_striker")
+            match.non_striker = User.objects.get(username=new_striker)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "changeBowler":
+            new_bowler = data.get("new_bowler")
+            match.bowler = User.objects.get(username=new_bowler)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "followon":
+            if match.innings == 2:
+                if match.batting.team_name == match.team1.team_name:
+                    match.batting = match.team2
+                else:
+                    match.batting = match.team1
+                match.save()
+                return JsonResponse({"message":"OK", "lead_trail_text": get_lead_trail_text(match)},status=200)
+            else:
+                return JsonResponse({"message":"Cannot follow on in first innings"},status=400)
+        if action == "completeMatch":
+            complete_match(match)
+            match.save()
+            return JsonResponse({"message": "OK", "won": str(match.won.team_name) if match.won else ""}, status=200)
+        if action == 'runout':
+            match.ball_record.append("RO")
+            bowler = Players.objects.get(match=match, name=match.bowler)
+            batter = Players.objects.get(match=match, name=match.striker)
+            if match.non_striker != None:
+                nbatter = Players.objects.get(match=match, name=match.non_striker)
+            else:
+                nbatter = None
+            rruns = int(data.get("runs", 0))
+            slowB = data.get("slowB")
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1wkt1 += 1
+                match.t1run1 += rruns
+                if match.t1overs1 - int(match.t1overs1) == Decimal('0.5'):
+                    match.t1overs1 = Decimal(int(match.t1overs1)) + Decimal('1.0')
+                    bowler.overs1 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t1overs1 += Decimal('0.1')
+                    bowler.overs1 += 1
+                batter.runs1 += rruns
+                batter.balls1 += 1
+                if slowB == "striker":
+                    batter.out1 = True
+                    match.striker = None
+                else:
+                    nbatter.out1 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team1p = Players.objects.filter(match=match, team=match.team1, out1=False)
+                print(team1p)
+                if team1p.count() == 0 or match.t1overs1 == Decimal('10.0'):
+                    match.batting = match.team2
+                    match.bowler = None
+                    record_completed_over(match)
+                    match.striker = None
+                    match.non_striker = None
+                    if match.t2overs1 != Decimal('0.0'):
+                        match.innings = 2
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1wkt2 += 1
+                match.t1run2 += rruns
+                if match.t1overs2 - int(match.t1overs2) == Decimal('0.5'):
+                    match.t1overs2 = Decimal(int(match.t1overs2)) + Decimal('1.0')
+                    bowler.overs2 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t1overs2 += Decimal('0.1')
+                    bowler.overs2 += 1
+                batter.runs2 += rruns
+                batter.balls2 += 1
+                if slowB == "striker":
+                    batter.out2 = True
+                    match.striker = None
+                else:
+                    nbatter.out2 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team1p = Players.objects.filter(match=match, team=match.team1, out2=False)
+                if team1p.count() == 0 or match.t1overs2 == Decimal('10.0'):
+                    if match.t2overs2 != Decimal('0.0'):
+                        if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
+                            match.won = match.team2
+                        else:
+                            match.won = match.team1
+                    else:
+                        match.batting = match.team2
+                        match.bowler = None
+                        record_completed_over(match)
+                        match.striker = None
+                        match.non_striker = None
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2wkt1 += 1
+                match.t2run1 += rruns
+                if match.t2overs1 - int(match.t2overs1) == Decimal('0.5'):
+                    match.t2overs1 = Decimal(int(match.t2overs1)) + Decimal('1.0')
+                    bowler.overs1 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t2overs1 += Decimal('0.1')
+                    bowler.overs1 += 1
+                batter.runs1 += rruns
+                batter.balls1 += 1
+                if slowB == "striker":
+                    batter.out1 = True
+                    match.striker = None
+                else:
+                    nbatter.out1 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team2p = Players.objects.filter(match=match, team=match.team2, out1=False)
+                if team2p.count() == 0 or match.t2overs1 == Decimal('10.0'):
+                    match.batting = match.team1
+                    match.bowler = None
+                    record_completed_over(match)
+                    match.striker = None
+                    match.non_striker = None
+                    if match.t1overs1 != Decimal('0.0'):
+                        match.innings = 2
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2wkt2 += 1
+                match.t2run2 += rruns
+                if match.t2overs2 - int(match.t2overs2) == Decimal('0.5'):
+                    match.t2overs2 = Decimal(int(match.t2overs2)) + Decimal('1.0')
+                    bowler.overs2 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t2overs2 += Decimal('0.1')
+                    bowler.overs2 += 1
+                batter.runs2 += rruns
+                batter.balls2 += 1
+                if slowB == "striker":
+                    batter.out2 = True
+                    match.striker = None
+                else:
+                    nbatter.out2 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team2p = Players.objects.filter(match=match, team=match.team2, out2=False)
+                if team2p.count() == 0 or match.t2overs2 == Decimal('10.0'):
+                    match.bowler = None
+                    record_completed_over(match)
+                    if match.t1overs2 != Decimal('0.0'):
+                        if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
+                            match.won = match.team2
+                        else:
+                            match.won = match.team1
+                    else:
+                        match.bowler = None
+                        record_completed_over(match)
+                        match.striker = None
+                        match.non_striker = None
+                        match.batting = match.team1
+
+            resolve_winner_if_chased(match)
+            match.save()
+            return JsonResponse({"message": "OK", "Change_bowler": change_bowler, "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "updateWide":
+            match.ball_record.append("Wd")
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1run1 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns1 += 1
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1run2 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns2 += 1
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2run1 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns1 += 1
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2run2 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns2 += 1
+            resolve_winner_if_chased(match)
+            match.save()
+            bowler.save()
+            return JsonResponse({"message": "OK", "Change_bowler": "No", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "updateNB":
+            match.ball_record.append("Nb")
+            runs = int(data.get("runs", 0)) 
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1run1 += runs + 1 
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs1 += runs
+                striker.balls1 +=1
+                bowler.bruns1 += runs + 1  
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1run2 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs2 += runs
+                striker.balls2 +=1
+                bowler.bruns2 += runs + 1
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2run1 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs1 += runs
+                striker.balls1 +=1
+                bowler.bruns1 += runs + 1
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2run2 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs2 += runs
+                striker.balls2 +=1
+                bowler.bruns2 += runs + 1
+
+            resolve_winner_if_chased(match)
+            match.save()
+            striker.save()
+            bowler.save()
+
+            return JsonResponse({"message": "OK", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "changeStrike":
+            temp = match.striker
+            match.striker = match.non_striker
+            match.non_striker = temp
+            match.save()
+            return JsonResponse({"message": "OK", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "strike":
+            new_striker = data.get("new_striker")
+            match.striker = User.objects.get(username=new_striker)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "non-strike":
+            new_striker = data.get("new_striker")
+            match.non_striker = User.objects.get(username=new_striker)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "changeBowler":
+            new_bowler = data.get("new_bowler")
+            match.bowler = User.objects.get(username=new_bowler)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "followon":
+            if match.innings == 2:
+                if match.batting.team_name == match.team1.team_name:
+                    match.batting = match.team2
+                else:
+                    match.batting = match.team1
+                match.save()
+                return JsonResponse({"message":"OK", "lead_trail_text": get_lead_trail_text(match)},status=200)
+            else:
+                return JsonResponse({"message":"Cannot follow on in first innings"},status=400)
+        if action == "completeMatch":
+            complete_match(match)
+            match.save()
+            return JsonResponse({"message": "OK", "won": str(match.won.team_name) if match.won else ""}, status=200)
+        if action == 'runout':
+            match.ball_record.append("RO")
+            bowler = Players.objects.get(match=match, name=match.bowler)
+            batter = Players.objects.get(match=match, name=match.striker)
+            if match.non_striker != None:
+                nbatter = Players.objects.get(match=match, name=match.non_striker)
+            else:
+                nbatter = None
+            rruns = int(data.get("runs", 0))
+            slowB = data.get("slowB")
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1wkt1 += 1
+                match.t1run1 += rruns
+                if match.t1overs1 - int(match.t1overs1) == Decimal('0.5'):
+                    match.t1overs1 = Decimal(int(match.t1overs1)) + Decimal('1.0')
+                    bowler.overs1 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t1overs1 += Decimal('0.1')
+                    bowler.overs1 += 1
+                batter.runs1 += rruns
+                batter.balls1 += 1
+                if slowB == "striker":
+                    batter.out1 = True
+                    match.striker = None
+                else:
+                    nbatter.out1 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team1p = Players.objects.filter(match=match, team=match.team1, out1=False)
+                print(team1p)
+                if team1p.count() == 0 or match.t1overs1 == Decimal('10.0'):
+                    match.batting = match.team2
+                    match.bowler = None
+                    record_completed_over(match)
+                    match.striker = None
+                    match.non_striker = None
+                    if match.t2overs1 != Decimal('0.0'):
+                        match.innings = 2
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1wkt2 += 1
+                match.t1run2 += rruns
+                if match.t1overs2 - int(match.t1overs2) == Decimal('0.5'):
+                    match.t1overs2 = Decimal(int(match.t1overs2)) + Decimal('1.0')
+                    bowler.overs2 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t1overs2 += Decimal('0.1')
+                    bowler.overs2 += 1
+                batter.runs2 += rruns
+                batter.balls2 += 1
+                if slowB == "striker":
+                    batter.out2 = True
+                    match.striker = None
+                else:
+                    nbatter.out2 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team1p = Players.objects.filter(match=match, team=match.team1, out2=False)
+                if team1p.count() == 0 or match.t1overs2 == Decimal('10.0'):
+                    if match.t2overs2 != Decimal('0.0'):
+                        if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
+                            match.won = match.team2
+                        else:
+                            match.won = match.team1
+                    else:
+                        match.batting = match.team2
+                        match.bowler = None
+                        record_completed_over(match)
+                        match.striker = None
+                        match.non_striker = None
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2wkt1 += 1
+                match.t2run1 += rruns
+                if match.t2overs1 - int(match.t2overs1) == Decimal('0.5'):
+                    match.t2overs1 = Decimal(int(match.t2overs1)) + Decimal('1.0')
+                    bowler.overs1 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t2overs1 += Decimal('0.1')
+                    bowler.overs1 += 1
+                batter.runs1 += rruns
+                batter.balls1 += 1
+                if slowB == "striker":
+                    batter.out1 = True
+                    match.striker = None
+                else:
+                    nbatter.out1 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team2p = Players.objects.filter(match=match, team=match.team2, out1=False)
+                if team2p.count() == 0 or match.t2overs1 == Decimal('10.0'):
+                    match.batting = match.team1
+                    match.bowler = None
+                    record_completed_over(match)
+                    match.striker = None
+                    match.non_striker = None
+                    if match.t1overs1 != Decimal('0.0'):
+                        match.innings = 2
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2wkt2 += 1
+                match.t2run2 += rruns
+                if match.t2overs2 - int(match.t2overs2) == Decimal('0.5'):
+                    match.t2overs2 = Decimal(int(match.t2overs2)) + Decimal('1.0')
+                    bowler.overs2 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t2overs2 += Decimal('0.1')
+                    bowler.overs2 += 1
+                batter.runs2 += rruns
+                batter.balls2 += 1
+                if slowB == "striker":
+                    batter.out2 = True
+                    match.striker = None
+                else:
+                    nbatter.out2 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team2p = Players.objects.filter(match=match, team=match.team2, out2=False)
+                if team2p.count() == 0 or match.t2overs2 == Decimal('10.0'):
+                    match.bowler = None
+                    record_completed_over(match)
+                    if match.t1overs2 != Decimal('0.0'):
+                        if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
+                            match.won = match.team2
+                        else:
+                            match.won = match.team1
+                    else:
+                        match.bowler = None
+                        record_completed_over(match)
+                        match.striker = None
+                        match.non_striker = None
+                        match.batting = match.team1
+
+            resolve_winner_if_chased(match)
+            match.save()
+            return JsonResponse({"message": "OK", "Change_bowler": change_bowler, "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "updateWide":
+            match.ball_record.append("Wd")
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1run1 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns1 += 1
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1run2 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns2 += 1
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2run1 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns1 += 1
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2run2 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns2 += 1
+            resolve_winner_if_chased(match)
+            match.save()
+            bowler.save()
+            return JsonResponse({"message": "OK", "Change_bowler": "No", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "updateNB":
+            match.ball_record.append("Nb")
+            runs = int(data.get("runs", 0)) 
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1run1 += runs + 1 
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs1 += runs
+                striker.balls1 +=1
+                bowler.bruns1 += runs + 1  
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1run2 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs2 += runs
+                striker.balls2 +=1
+                bowler.bruns2 += runs + 1
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2run1 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs1 += runs
+                striker.balls1 +=1
+                bowler.bruns1 += runs + 1
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2run2 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs2 += runs
+                striker.balls2 +=1
+                bowler.bruns2 += runs + 1
+
+            resolve_winner_if_chased(match)
+            match.save()
+            striker.save()
+            bowler.save()
+
+            return JsonResponse({"message": "OK", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "changeStrike":
+            temp = match.striker
+            match.striker = match.non_striker
+            match.non_striker = temp
+            match.save()
+            return JsonResponse({"message": "OK", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "strike":
+            new_striker = data.get("new_striker")
+            match.striker = User.objects.get(username=new_striker)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "non-strike":
+            new_striker = data.get("new_striker")
+            match.non_striker = User.objects.get(username=new_striker)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "changeBowler":
+            new_bowler = data.get("new_bowler")
+            match.bowler = User.objects.get(username=new_bowler)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "followon":
+            if match.innings == 2:
+                if match.batting.team_name == match.team1.team_name:
+                    match.batting = match.team2
+                else:
+                    match.batting = match.team1
+                match.save()
+                return JsonResponse({"message":"OK", "lead_trail_text": get_lead_trail_text(match)},status=200)
+            else:
+                return JsonResponse({"message":"Cannot follow on in first innings"},status=400)
+        if action == "completeMatch":
+            complete_match(match)
+            match.save()
+            return JsonResponse({"message": "OK", "won": str(match.won.team_name) if match.won else ""}, status=200)
+        if action == 'runout':
+            match.ball_record.append("RO")
+            bowler = Players.objects.get(match=match, name=match.bowler)
+            batter = Players.objects.get(match=match, name=match.striker)
+            if match.non_striker != None:
+                nbatter = Players.objects.get(match=match, name=match.non_striker)
+            else:
+                nbatter = None
+            rruns = int(data.get("runs", 0))
+            slowB = data.get("slowB")
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1wkt1 += 1
+                match.t1run1 += rruns
+                if match.t1overs1 - int(match.t1overs1) == Decimal('0.5'):
+                    match.t1overs1 = Decimal(int(match.t1overs1)) + Decimal('1.0')
+                    bowler.overs1 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t1overs1 += Decimal('0.1')
+                    bowler.overs1 += 1
+                batter.runs1 += rruns
+                batter.balls1 += 1
+                if slowB == "striker":
+                    batter.out1 = True
+                    match.striker = None
+                else:
+                    nbatter.out1 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team1p = Players.objects.filter(match=match, team=match.team1, out1=False)
+                print(team1p)
+                if team1p.count() == 0 or match.t1overs1 == Decimal('10.0'):
+                    match.batting = match.team2
+                    match.bowler = None
+                    record_completed_over(match)
+                    match.striker = None
+                    match.non_striker = None
+                    if match.t2overs1 != Decimal('0.0'):
+                        match.innings = 2
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1wkt2 += 1
+                match.t1run2 += rruns
+                if match.t1overs2 - int(match.t1overs2) == Decimal('0.5'):
+                    match.t1overs2 = Decimal(int(match.t1overs2)) + Decimal('1.0')
+                    bowler.overs2 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t1overs2 += Decimal('0.1')
+                    bowler.overs2 += 1
+                batter.runs2 += rruns
+                batter.balls2 += 1
+                if slowB == "striker":
+                    batter.out2 = True
+                    match.striker = None
+                else:
+                    nbatter.out2 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team1p = Players.objects.filter(match=match, team=match.team1, out2=False)
+                if team1p.count() == 0 or match.t1overs2 == Decimal('10.0'):
+                    if match.t2overs2 != Decimal('0.0'):
+                        if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
+                            match.won = match.team2
+                        else:
+                            match.won = match.team1
+                    else:
+                        match.batting = match.team2
+                        match.bowler = None
+                        record_completed_over(match)
+                        match.striker = None
+                        match.non_striker = None
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2wkt1 += 1
+                match.t2run1 += rruns
+                if match.t2overs1 - int(match.t2overs1) == Decimal('0.5'):
+                    match.t2overs1 = Decimal(int(match.t2overs1)) + Decimal('1.0')
+                    bowler.overs1 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t2overs1 += Decimal('0.1')
+                    bowler.overs1 += 1
+                batter.runs1 += rruns
+                batter.balls1 += 1
+                if slowB == "striker":
+                    batter.out1 = True
+                    match.striker = None
+                else:
+                    nbatter.out1 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team2p = Players.objects.filter(match=match, team=match.team2, out1=False)
+                if team2p.count() == 0 or match.t2overs1 == Decimal('10.0'):
+                    match.batting = match.team1
+                    match.bowler = None
+                    record_completed_over(match)
+                    match.striker = None
+                    match.non_striker = None
+                    if match.t1overs1 != Decimal('0.0'):
+                        match.innings = 2
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2wkt2 += 1
+                match.t2run2 += rruns
+                if match.t2overs2 - int(match.t2overs2) == Decimal('0.5'):
+                    match.t2overs2 = Decimal(int(match.t2overs2)) + Decimal('1.0')
+                    bowler.overs2 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t2overs2 += Decimal('0.1')
+                    bowler.overs2 += 1
+                batter.runs2 += rruns
+                batter.balls2 += 1
+                if slowB == "striker":
+                    batter.out2 = True
+                    match.striker = None
+                else:
+                    nbatter.out2 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team2p = Players.objects.filter(match=match, team=match.team2, out2=False)
+                if team2p.count() == 0 or match.t2overs2 == Decimal('10.0'):
+                    match.bowler = None
+                    record_completed_over(match)
+                    if match.t1overs2 != Decimal('0.0'):
+                        if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
+                            match.won = match.team2
+                        else:
+                            match.won = match.team1
+                    else:
+                        match.bowler = None
+                        record_completed_over(match)
+                        match.striker = None
+                        match.non_striker = None
+                        match.batting = match.team1
+
+            resolve_winner_if_chased(match)
+            match.save()
+            return JsonResponse({"message": "OK", "Change_bowler": change_bowler, "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "updateWide":
+            match.ball_record.append("Wd")
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1run1 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns1 += 1
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1run2 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns2 += 1
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2run1 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns1 += 1
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2run2 += 1
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                bowler.bruns2 += 1
+            resolve_winner_if_chased(match)
+            match.save()
+            bowler.save()
+            return JsonResponse({"message": "OK", "Change_bowler": "No", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "updateNB":
+            match.ball_record.append("Nb")
+            runs = int(data.get("runs", 0)) 
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1run1 += runs + 1 
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs1 += runs
+                striker.balls1 +=1
+                bowler.bruns1 += runs + 1  
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1run2 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs2 += runs
+                striker.balls2 +=1
+                bowler.bruns2 += runs + 1
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2run1 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs1 += runs
+                striker.balls1 +=1
+                bowler.bruns1 += runs + 1
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2run2 += runs + 1
+                striker = Players.objects.get(match=match, name=match.striker)
+                bowler = Players.objects.get(match=match, name=match.bowler)
+                striker.runs2 += runs
+                striker.balls2 +=1
+                bowler.bruns2 += runs + 1
+
+            resolve_winner_if_chased(match)
+            match.save()
+            striker.save()
+            bowler.save()
+
+            return JsonResponse({"message": "OK", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "changeStrike":
+            temp = match.striker
+            match.striker = match.non_striker
+            match.non_striker = temp
+            match.save()
+            return JsonResponse({"message": "OK", "lead_trail_text": get_lead_trail_text(match)}, status=200)
+        if action == "strike":
+            new_striker = data.get("new_striker")
+            match.striker = User.objects.get(username=new_striker)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "non-strike":
+            new_striker = data.get("new_striker")
+            match.non_striker = User.objects.get(username=new_striker)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "changeBowler":
+            new_bowler = data.get("new_bowler")
+            match.bowler = User.objects.get(username=new_bowler)
+            match.save()
+            return JsonResponse({"message":"Ok", "lead_trail_text": get_lead_trail_text(match)},status=200)
+        if action == "followon":
+            if match.innings == 2:
+                if match.batting.team_name == match.team1.team_name:
+                    match.batting = match.team2
+                else:
+                    match.batting = match.team1
+                match.save()
+                return JsonResponse({"message":"OK", "lead_trail_text": get_lead_trail_text(match)},status=200)
+            else:
+                return JsonResponse({"message":"Cannot follow on in first innings"},status=400)
+        if action == "completeMatch":
+            complete_match(match)
+            match.save()
+            return JsonResponse({"message": "OK", "won": str(match.won.team_name) if match.won else ""}, status=200)
+        if action == 'runout':
+            match.ball_record.append("RO")
+            bowler = Players.objects.get(match=match, name=match.bowler)
+            batter = Players.objects.get(match=match, name=match.striker)
+            if match.non_striker != None:
+                nbatter = Players.objects.get(match=match, name=match.non_striker)
+            else:
+                nbatter = None
+            rruns = int(data.get("runs", 0))
+            slowB = data.get("slowB")
+            if match.batting == match.team1 and match.innings == 1:
+                match.t1wkt1 += 1
+                match.t1run1 += rruns
+                if match.t1overs1 - int(match.t1overs1) == Decimal('0.5'):
+                    match.t1overs1 = Decimal(int(match.t1overs1)) + Decimal('1.0')
+                    bowler.overs1 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t1overs1 += Decimal('0.1')
+                    bowler.overs1 += 1
+                batter.runs1 += rruns
+                batter.balls1 += 1
+                if slowB == "striker":
+                    batter.out1 = True
+                    match.striker = None
+                else:
+                    nbatter.out1 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team1p = Players.objects.filter(match=match, team=match.team1, out1=False)
+                print(team1p)
+                if team1p.count() == 0 or match.t1overs1 == Decimal('10.0'):
+                    match.batting = match.team2
+                    match.bowler = None
+                    record_completed_over(match)
+                    match.striker = None
+                    match.non_striker = None
+                    if match.t2overs1 != Decimal('0.0'):
+                        match.innings = 2
+
+            elif match.batting == match.team1 and match.innings == 2:
+                match.t1wkt2 += 1
+                match.t1run2 += rruns
+                if match.t1overs2 - int(match.t1overs2) == Decimal('0.5'):
+                    match.t1overs2 = Decimal(int(match.t1overs2)) + Decimal('1.0')
+                    bowler.overs2 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t1overs2 += Decimal('0.1')
+                    bowler.overs2 += 1
+                batter.runs2 += rruns
+                batter.balls2 += 1
+                if slowB == "striker":
+                    batter.out2 = True
+                    match.striker = None
+                else:
+                    nbatter.out2 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team1p = Players.objects.filter(match=match, team=match.team1, out2=False)
+                if team1p.count() == 0 or match.t1overs2 == Decimal('10.0'):
+                    if match.t2overs2 != Decimal('0.0'):
+                        if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
+                            match.won = match.team2
+                        else:
+                            match.won = match.team1
+                    else:
+                        match.batting = match.team2
+                        match.bowler = None
+                        record_completed_over(match)
+                        match.striker = None
+                        match.non_striker = None
+
+            elif match.batting == match.team2 and match.innings == 1:
+                match.t2wkt1 += 1
+                match.t2run1 += rruns
+                if match.t2overs1 - int(match.t2overs1) == Decimal('0.5'):
+                    match.t2overs1 = Decimal(int(match.t2overs1)) + Decimal('1.0')
+                    bowler.overs1 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t2overs1 += Decimal('0.1')
+                    bowler.overs1 += 1
+                batter.runs1 += rruns
+                batter.balls1 += 1
+                if slowB == "striker":
+                    batter.out1 = True
+                    match.striker = None
+                else:
+                    nbatter.out1 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team2p = Players.objects.filter(match=match, team=match.team2, out1=False)
+                if team2p.count() == 0 or match.t2overs1 == Decimal('10.0'):
+                    match.batting = match.team1
+                    match.bowler = None
+                    record_completed_over(match)
+                    match.striker = None
+                    match.non_striker = None
+                    if match.t1overs1 != Decimal('0.0'):
+                        match.innings = 2
+
+            elif match.batting == match.team2 and match.innings == 2:
+                match.t2wkt2 += 1
+                match.t2run2 += rruns
+                if match.t2overs2 - int(match.t2overs2) == Decimal('0.5'):
+                    match.t2overs2 = Decimal(int(match.t2overs2)) + Decimal('1.0')
+                    bowler.overs2 += 1
+                    change_bowler = "YES"
+                    match.bowler = None
+                    record_completed_over(match)
+                else:
+                    match.t2overs2 += Decimal('0.1')
+                    bowler.overs2 += 1
+                batter.runs2 += rruns
+                batter.balls2 += 1
+                if slowB == "striker":
+                    batter.out2 = True
+                    match.striker = None
+                else:
+                    nbatter.out2 = True
+                    match.non_striker = None
+                batter.save()
+                bowler.save()
+                if nbatter != None:
+                    nbatter.save()
+                team2p = Players.objects.filter(match=match, team=match.team2, out2=False)
+                if team2p.count() == 0 or match.t2overs2 == Decimal('10.0'):
+                    match.bowler = None
+                    record_completed_over(match)
+                    if match.t1overs2 != Decimal('0.0'):
+                        if (match.t1run1 + match.t1run2) < (match.t2run1 + match.t2run2):
+                            match.won = match.team2
+                        else:
+                            match.won = match.team1
+                    else:
+                        match.bowler = None
+                        record_completed_over(match)
                         match.striker = None
                         match.non_striker = None
                         match.batting = match.team1
@@ -909,4 +1996,3 @@ def undo_data(request):
             player.save()
         return JsonResponse({'status': 'success', 'message': 'Last action undone.'})
     return JsonResponse({'status': 'error', 'message': 'Invalid request.'}, status=400)
-

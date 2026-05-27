@@ -43,6 +43,7 @@ class Match(models.Model):
     )
     won = models.ForeignKey(Team, related_name='won', on_delete=models.CASCADE,null=True,blank=True)
     ball_record = models.JSONField(default=list)
+    recent_overs = models.JSONField(default=list)
     history = HistoricalRecords()
     def __str__(self):
         return f"Match {self.match_id}"
