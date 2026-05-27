@@ -2,7 +2,7 @@ cd /quickWicket
 source venv/bin/activate
 
 Run in background :
-nohup python manage.py runserver 0.0.0.0:8000 & 
+nohup python manage.py runserver 0.0.0.0:8000 > nohup.out 2>&1 &
 
 Check it is running:
 ps aux | grep manage.py
