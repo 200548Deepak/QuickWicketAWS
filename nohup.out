@@ -2746,3 +2746,291 @@ Not Found: /favicon.ico
 [24/May/2026 13:44:29] "GET /player/Praveer HTTP/1.1" 200 66074
 Not Found: /favicon.ico
 [24/May/2026 14:01:15] "GET /favicon.ico HTTP/1.1" 404 4232
+[24/May/2026 14:25:52] "GET / HTTP/1.1" 200 37376
+[24/May/2026 14:27:28] "GET / HTTP/1.1" 200 37376
+[24/May/2026 14:30:21] code 400, message Bad request version ('À\x14À')
+[24/May/2026 14:30:21] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /favicon.ico
+[24/May/2026 14:45:59] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /favicon.ico
+[24/May/2026 15:43:48] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /favicon.ico
+[24/May/2026 17:05:21] "GET /favicon.ico HTTP/1.1" 404 4232
+[24/May/2026 17:16:25,099] - Broken pipe from ('158.69.73.250', 37394)
+[24/May/2026 17:16:25,104] - Broken pipe from ('158.69.73.250', 37400)
+[24/May/2026 17:28:34,966] - Broken pipe from ('158.69.73.250', 49736)
+[24/May/2026 17:28:34,971] - Broken pipe from ('158.69.73.250', 49740)
+[24/May/2026 18:54:42] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 68056
+[24/May/2026 18:54:42] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+[24/May/2026 18:54:45] "GET /players HTTP/1.1" 301 0
+[24/May/2026 18:54:47] "GET /players/ HTTP/1.1" 200 73413
+[24/May/2026 18:55:09] "GET /players/?sort=wickets HTTP/1.1" 200 73416
+[24/May/2026 18:55:27] "GET /players/?sort=economy HTTP/1.1" 200 73418
+[24/May/2026 18:55:53] "GET /players/?sort=strike_rate HTTP/1.1" 200 73423
+[24/May/2026 18:55:59] "GET /players/?sort=strike_rate HTTP/1.1" 200 73423
+[24/May/2026 18:56:21] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[24/May/2026 18:56:41] "GET /favicon.ico HTTP/1.1" 404 4232
+[24/May/2026 19:51:18] "GET / HTTP/1.1" 200 37376
+Not Found: /.env
+[24/May/2026 21:33:41] "GET /.env HTTP/1.1" 404 4211
+[24/May/2026 21:46:15] code 400, message Bad request version ('À\x14À')
+[24/May/2026 21:46:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+[24/May/2026 21:46:16] code 400, message Bad request syntax ('MGLNDD_13.201.32.179_8000')
+[24/May/2026 21:46:16] "MGLNDD_13.201.32.179_8000" 400 -
+Not Found: /.env
+[24/May/2026 22:34:03] "GET /.env HTTP/1.1" 404 4211
+[24/May/2026 22:39:38] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 68056
+[24/May/2026 22:39:38] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+Not Found: /favicon.ico
+[24/May/2026 22:39:38] "GET /favicon.ico HTTP/1.1" 404 4232
+[24/May/2026 22:39:43] "GET /players HTTP/1.1" 301 0
+[24/May/2026 22:39:43] "GET /players/ HTTP/1.1" 200 73413
+[24/May/2026 22:40:39] "GET /players/ HTTP/1.1" 200 73413
+Not Found: /.env
+[24/May/2026 22:41:24] "GET /.env HTTP/1.1" 404 4211
+[24/May/2026 22:42:29] "GET /players/?sort=economy HTTP/1.1" 200 73418
+[24/May/2026 22:42:35] "GET /player/Harsha HTTP/1.1" 200 66074
+[24/May/2026 22:42:41] "GET /player/Harsha HTTP/1.1" 200 66074
+[24/May/2026 22:42:47] "GET /player/Uttham HTTP/1.1" 200 66071
+[24/May/2026 22:51:00,032] - Broken pipe from ('103.214.63.94', 47222)
+[25/May/2026 02:38:17] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[25/May/2026 02:38:17] "GET /favicon.ico HTTP/1.1" 404 4227
+[25/May/2026 02:47:13] "GET / HTTP/1.1" 200 37376
+Not Found: /.env
+[25/May/2026 04:10:24] "GET /.env HTTP/1.1" 404 4211
+[25/May/2026 07:27:25] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 68056
+[25/May/2026 07:27:26] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+Not Found: /favicon.ico
+[25/May/2026 07:27:26] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /favicon.ico
+[25/May/2026 08:33:16] "GET /favicon.ico HTTP/1.1" 404 4232
+[25/May/2026 08:38:17,516] - Broken pipe from ('49.37.243.42', 48338)
+Not Found: /favicon.ico
+[25/May/2026 09:49:31] "GET /favicon.ico HTTP/1.1" 404 4232
+[25/May/2026 09:49:42] "GET /players/?sort=runs HTTP/1.1" 200 73413
+Not Found: /favicon.ico
+[25/May/2026 09:50:00] "GET /favicon.ico HTTP/1.1" 404 4232
+[25/May/2026 10:34:23] code 400, message Bad request version ('À\x14À')
+[25/May/2026 10:34:23] You're accessing the development server over HTTPS, but it only supports HTTP.
+[25/May/2026 10:39:49] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 68056
+[25/May/2026 10:39:49] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+Not Found: /favicon.ico
+[25/May/2026 10:39:49] "GET /favicon.ico HTTP/1.1" 404 4232
+[25/May/2026 10:39:52] "GET /players/ HTTP/1.1" 200 73413
+[25/May/2026 10:40:06] "GET /matches HTTP/1.1" 301 0
+[25/May/2026 10:40:06] "GET /matches/ HTTP/1.1" 200 42598
+[25/May/2026 10:40:27] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 68056
+[25/May/2026 10:40:27] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+[25/May/2026 10:40:29] "GET /game/20260524_122340_R6C21N HTTP/1.1" 200 68056
+[25/May/2026 10:40:29] "GET /game_details/20260524_122340_R6C21N HTTP/1.1" 200 4346
+[25/May/2026 10:41:04] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 68056
+[25/May/2026 10:41:04] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+[25/May/2026 10:41:58] "GET /game/20260524_122340_R6C21N HTTP/1.1" 200 68056
+[25/May/2026 10:41:59] "GET /game_details/20260524_122340_R6C21N HTTP/1.1" 200 4346
+[25/May/2026 12:40:24,999] - Broken pipe from ('152.57.27.230', 37012)
+[25/May/2026 12:40:24,999] - Broken pipe from ('152.57.27.230', 37010)
+Not Found: /.env
+[25/May/2026 13:20:48] "GET /.env HTTP/1.1" 404 4211
+Not Found: /v1/models
+[25/May/2026 13:21:05] "GET /v1/models HTTP/1.1" 404 4226
+[25/May/2026 13:52:50] "GET / HTTP/1.1" 200 37376
+[25/May/2026 13:53:27] "GET / HTTP/1.1" 200 37376
+[25/May/2026 13:54:31] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03\x00¾\x9bùßi{\x8eDUE\x90\x9a3\x05öqÙu\x05éh9í¤\x81hÎKK\x8aW\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[25/May/2026 13:54:31] You're accessing the development server over HTTPS, but it only supports HTTP.
+[25/May/2026 13:55:37] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03jò\x9dæ\x96¯\x19HÊ³°w\x83\x05\x970ïn\x00ýAlyn1!9îøNÚw\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[25/May/2026 13:55:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /favicon.ico
+[25/May/2026 14:11:17] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /.env.production
+[25/May/2026 14:21:08] "GET /.env.production HTTP/1.1" 404 4244
+Not Found: /.env.staging
+[25/May/2026 14:21:09] "GET /.env.staging HTTP/1.1" 404 4235
+Not Found: /.env.local
+[25/May/2026 14:21:10] "GET /.env.local HTTP/1.1" 404 4229
+Not Found: /.env.development
+[25/May/2026 14:21:11] "GET /.env.development HTTP/1.1" 404 4247
+Not Found: /.env.test
+[25/May/2026 14:21:13] "GET /.env.test HTTP/1.1" 404 4226
+Not Found: /.env.docker
+[25/May/2026 14:21:15] "GET /.env.docker HTTP/1.1" 404 4232
+Not Found: /.env.prod
+[25/May/2026 14:21:18] "GET /.env.prod HTTP/1.1" 404 4226
+Not Found: /.env.cloud
+[25/May/2026 14:21:19] "GET /.env.cloud HTTP/1.1" 404 4229
+Not Found: /.env.aws
+[25/May/2026 14:21:20] "GET /.env.aws HTTP/1.1" 404 4223
+Not Found: /.env.anthropic
+[25/May/2026 14:21:21] "GET /.env.anthropic HTTP/1.1" 404 4241
+Not Found: /.env.keys
+[25/May/2026 14:21:23] "GET /.env.keys HTTP/1.1" 404 4226
+Not Found: /.secrets.env
+[25/May/2026 14:21:24] "GET /.secrets.env HTTP/1.1" 404 4235
+Not Found: /secrets.env
+[25/May/2026 14:21:25] "GET /secrets.env HTTP/1.1" 404 4232
+Not Found: /.env.secure
+[25/May/2026 14:21:27] "GET /.env.secure HTTP/1.1" 404 4232
+Not Found: /app.env
+[25/May/2026 14:21:28] "GET /app.env HTTP/1.1" 404 4220
+Not Found: /config.env
+[25/May/2026 14:21:30] "GET /config.env HTTP/1.1" 404 4229
+[25/May/2026 16:25:52] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 63893
+[25/May/2026 16:26:27] "GET /players/ HTTP/1.1" 200 73419
+[25/May/2026 16:26:37] "GET /players/?sort=wickets HTTP/1.1" 200 73422
+[25/May/2026 16:26:49] "GET /player/Santhu HTTP/1.1" 200 66077
+[25/May/2026 16:26:55] "GET /player/Ravi HTTP/1.1" 200 66104
+[25/May/2026 16:27:03] "GET /player/Harsha HTTP/1.1" 200 66080
+[25/May/2026 16:27:10] "GET /player/Keshav HTTP/1.1" 200 66065
+[25/May/2026 16:27:14] "GET /player/Uttham HTTP/1.1" 200 66077
+[25/May/2026 16:27:20] "GET /players/?sort=economy HTTP/1.1" 200 73424
+[25/May/2026 16:27:47] "GET /player/Vinod HTTP/1.1" 200 58836
+[25/May/2026 17:09:30] "GET /player/Harsha HTTP/1.1" 200 66080
+Not Found: /.env
+[25/May/2026 17:34:09] "GET /.env HTTP/1.1" 404 4211
+Not Found: /favicon.ico
+[25/May/2026 18:38:29] "GET /favicon.ico HTTP/1.1" 404 4232
+[25/May/2026 18:38:29] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[25/May/2026 18:38:30] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /favicon.ico
+[25/May/2026 18:38:34] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /image/lgbg.jpg
+[25/May/2026 18:38:40] "GET /image/lgbg.jpg HTTP/1.1" 404 4241
+Not Found: /favicon.ico
+[25/May/2026 18:38:40] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /favicon.ico
+[25/May/2026 19:09:26] "GET /favicon.ico HTTP/1.1" 404 4232
+[25/May/2026 19:09:26] "GET / HTTP/1.1" 200 37376
+Not Found: /image/lgbg.jpg
+[25/May/2026 19:09:26] "GET /image/lgbg.jpg HTTP/1.1" 404 4241
+Not Found: /favicon.ico
+[25/May/2026 19:39:49] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /.env
+[25/May/2026 20:23:04] "GET /.env HTTP/1.1" 404 4211
+Not Found: /.env
+[25/May/2026 21:05:40] "GET /.env HTTP/1.1" 404 4211
+[25/May/2026 21:31:07] "GET / HTTP/1.1" 200 37376
+Not Found: /.env
+[25/May/2026 21:58:43] "GET /.env HTTP/1.1" 404 4211
+[26/May/2026 07:36:12] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03ïFÀm:[\x9d/,ãÓë\x12m\x83Çü2p»\x89hÚÙw%æ\\ãBu#\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[26/May/2026 07:36:12] You're accessing the development server over HTTPS, but it only supports HTTP.
+[26/May/2026 07:36:13] code 400, message Bad request syntax ('MGLNDD_13.201.32.179_8000')
+[26/May/2026 07:36:13] "MGLNDD_13.201.32.179_8000" 400 -
+[26/May/2026 08:22:32] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+[26/May/2026 08:22:44,664] - Broken pipe from ('167.103.89.35', 23026)
+[26/May/2026 12:31:16] "GET / HTTP/1.1" 200 37376
+[26/May/2026 12:33:32] "GET / HTTP/1.1" 200 37376
+[26/May/2026 12:34:12] code 400, message Bad request version ('À\x14À')
+[26/May/2026 12:34:12] You're accessing the development server over HTTPS, but it only supports HTTP.
+[26/May/2026 12:35:12] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03\x83\x95\x1aÅî\x80)n\x87\x8c·\x8eïÔsÓO\x7f[ôä\x12ì?\x91\x89\x92\x98÷<B>\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[26/May/2026 12:35:12] You're accessing the development server over HTTPS, but it only supports HTTP.
+[26/May/2026 14:01:33] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[26/May/2026 14:01:33] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /favicon.ico
+[26/May/2026 14:01:33] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /favicon.ico
+[26/May/2026 14:01:38] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /image/lgbg.jpg
+[26/May/2026 14:01:40] "GET /image/lgbg.jpg HTTP/1.1" 404 4241
+[26/May/2026 14:42:24] code 400, message Bad request version ('À\x13À')
+[26/May/2026 14:42:24] You're accessing the development server over HTTPS, but it only supports HTTP.
+[26/May/2026 14:42:34] "GET / HTTP/1.1" 200 37376
+[26/May/2026 14:42:34,985] - Broken pipe from ('47.254.72.143', 22312)
+[26/May/2026 14:42:35] "GET / HTTP/1.1" 200 37376
+[26/May/2026 14:43:08] "GET / HTTP/1.1" 200 37376
+[26/May/2026 14:43:10] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[26/May/2026 14:43:25] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /.env
+[26/May/2026 14:50:59] "GET /.env HTTP/1.1" 404 4211
+[26/May/2026 15:51:36] code 400, message Bad HTTP/0.9 request type ('\x00\x00\x00')
+[26/May/2026 15:51:36] "    c                           " 400 -
+[26/May/2026 16:02:53] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[26/May/2026 16:02:56] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /favicon.ico
+[26/May/2026 16:02:56] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /image/lgbg.jpg
+[26/May/2026 16:02:56] "GET /image/lgbg.jpg HTTP/1.1" 404 4241
+Not Found: /favicon.ico
+[26/May/2026 16:02:56] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /favicon.ico
+[26/May/2026 16:02:57] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /.env
+[26/May/2026 18:23:38] "GET /.env HTTP/1.1" 404 4211
+[26/May/2026 18:48:47] code 400, message Bad request version ('a\x03;±ò\x1aò8\x12\x0e(ü+ÔÓ')
+[26/May/2026 18:48:47] You're accessing the development server over HTTPS, but it only supports HTTP.
+[26/May/2026 18:48:50] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[26/May/2026 18:51:10] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /auth/azure/redirect'
+[26/May/2026 19:19:11] "GET /auth/azure/redirect' HTTP/1.1" 404 4274
+[26/May/2026 20:30:19] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 68056
+[26/May/2026 20:30:20] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+Not Found: /favicon.ico
+[26/May/2026 20:30:20] "GET /favicon.ico HTTP/1.1" 404 4232
+[26/May/2026 20:30:37] "GET /players/ HTTP/1.1" 200 73413
+[26/May/2026 20:30:40] "GET /players/?sort=runs HTTP/1.1" 200 73413
+[26/May/2026 20:30:50] "GET /player/Santhu HTTP/1.1" 200 66071
+[26/May/2026 20:30:56] "GET /player/Uttham HTTP/1.1" 200 66071
+[26/May/2026 20:31:04] "GET /player/Harsha HTTP/1.1" 200 66074
+[26/May/2026 20:31:19,143] - Broken pipe from ('223.185.131.18', 24693)
+[26/May/2026 20:31:34,815] - Broken pipe from ('223.185.131.18', 1216)
+Not Found: /favicon.ico
+[26/May/2026 20:34:22] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /favicon.ico
+[26/May/2026 20:34:52] "GET /favicon.ico HTTP/1.1" 404 4232
+[26/May/2026 20:35:08] "GET /players/ HTTP/1.1" 200 73413
+Not Found: /favicon.ico
+[26/May/2026 21:50:55] "GET /favicon.ico HTTP/1.1" 404 4232
+[26/May/2026 21:54:40] "GET / HTTP/1.1" 200 37376
+[26/May/2026 21:54:41,083] - Broken pipe from ('198.235.24.207', 59858)
+[26/May/2026 23:03:02,610] - Broken pipe from ('50.3.85.50', 50028)
+[26/May/2026 23:03:49,601] - Broken pipe from ('50.3.85.50', 60410)
+[26/May/2026 23:42:18] code 400, message Bad HTTP/0.9 request type ('\x00\x00\x00')
+[26/May/2026 23:42:18] "    c                           " 400 -
+[27/May/2026 00:35:52] "GET / HTTP/1.1" 200 37376
+Not Found: /favicon.ico
+[27/May/2026 00:35:52] "GET /favicon.ico HTTP/1.1" 404 4227
+Not Found: /.env
+[27/May/2026 01:28:25] "GET /.env HTTP/1.1" 404 4211
+[27/May/2026 08:56:36] "GET / HTTP/1.1" 200 37376
+Not Found: /.env
+[27/May/2026 09:23:17] "GET /.env HTTP/1.1" 404 4211
+Not Found: /favicon.ico
+[27/May/2026 10:56:54] "GET /favicon.ico HTTP/1.1" 404 4232
+Not Found: /v1/models
+[27/May/2026 11:37:13] "GET /v1/models HTTP/1.1" 404 4226
+[27/May/2026 12:46:42] "GET / HTTP/1.1" 200 37376
+[27/May/2026 12:47:55] "GET / HTTP/1.1" 200 37376
+[27/May/2026 12:49:15] code 400, message Bad request version ('À\x14À')
+[27/May/2026 12:49:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+[27/May/2026 12:50:31] code 400, message Bad request version ('À\x14À')
+[27/May/2026 12:50:31] You're accessing the development server over HTTPS, but it only supports HTTP.
+[27/May/2026 13:26:26] "GET / HTTP/1.1" 200 37376
+[27/May/2026 13:34:26] code 400, message Bad request version ('À\x14À')
+[27/May/2026 13:34:26] You're accessing the development server over HTTPS, but it only supports HTTP.
+[27/May/2026 13:34:26] code 400, message Bad request syntax ('MGLNDD_13.201.32.179_8000')
+[27/May/2026 13:34:26] "MGLNDD_13.201.32.179_8000" 400 -
+[27/May/2026 18:16:13] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 68056
+[27/May/2026 18:16:13] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+Not Found: /favicon.ico
+[27/May/2026 18:16:13] "GET /favicon.ico HTTP/1.1" 404 4232
+[27/May/2026 18:16:17] "GET /matches/ HTTP/1.1" 200 42598
+[27/May/2026 18:16:23] "GET /game/20260524_122340_R6C21N HTTP/1.1" 200 68056
+[27/May/2026 18:16:23] "GET /game_details/20260524_122340_R6C21N HTTP/1.1" 200 4346
+[27/May/2026 18:16:37] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 68056
+[27/May/2026 18:16:37] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+[27/May/2026 18:16:46] "GET /game/20260524_142513_im9ouk HTTP/1.1" 200 68056
+[27/May/2026 18:16:46] "GET /game_details/20260524_142513_im9ouk HTTP/1.1" 200 4344
+[27/May/2026 18:17:04] "GET /game/20260524_122340_R6C21N HTTP/1.1" 200 68056
+[27/May/2026 18:17:04] "GET /game_details/20260524_122340_R6C21N HTTP/1.1" 200 4346
+[27/May/2026 18:17:26] "GET /players/ HTTP/1.1" 200 73413
+[27/May/2026 18:17:30] "GET /players/?sort=economy HTTP/1.1" 200 73418
+[27/May/2026 18:17:44] "GET /player/Uttham HTTP/1.1" 200 66071
+[27/May/2026 18:17:56] "GET /player/Harsha HTTP/1.1" 200 66074
+[27/May/2026 18:20:01,941] - Broken pipe from ('27.61.34.93', 37296)
+Not Found: /favicon.ico
+[27/May/2026 19:02:33] "GET /favicon.ico HTTP/1.1" 404 4232
